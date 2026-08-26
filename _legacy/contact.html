@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | OTA World</title>
+  <meta name="description" content="Call OTA World headquarters at 888-848-2630, or leave a note for a sitting, partnership, or service.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="contact">
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-left">
+        <a href="tel:+18888482630">888-848-2630</a>
+        <span class="dot hide-sm">·</span>
+        <span class="hide-sm">Carrollton, Texas</span>
+      </div>
+    </div>
+  </div>
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="logo" href="index.html" aria-label="OTA World">
+        <span class="logo-ota">OTA</span>
+        <span class="logo-world">World</span>
+        <span class="logo-brands">Osaki · Titan · AmaMedic</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <ul class="nav-links">
+        <li><a href="about.html">The Brand</a></li>
+        <li><a href="products.html">Lineup</a></li>
+        <li><a href="stores.html">Showrooms</a></li>
+        <li><a href="care.html">Care</a></li>
+        <li><a href="franchise.html">Partners</a></li>
+        <li><a class="nav-cta" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="chapter-hero">
+      <img src="assets/images/home-grid-4.jpg" alt="OTA World storefront">
+      <div class="chapter-hero-veil"></div>
+      <div class="container chapter-hero-copy">
+        <div class="kicker">Contact</div>
+        <h1>Start with a phone.<br>Or a note.</h1>
+        <p class="lede">A call is fastest. Choose a path below so headquarters knows how to help.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="intents">
+          <a href="#note">
+            <div class="kicker">Guests</div>
+            <h3>Book a sitting</h3>
+            <p>Flagship or a nearby gallery. Tell us your city and when you can come.</p>
+          </a>
+          <a href="care.html">
+            <div class="kicker">Owners of a chair</div>
+            <h3>Care &amp; service</h3>
+            <p>Delivery, installation, warranty. The house stays after the truck.</p>
+          </a>
+          <a href="franchise.html">
+            <div class="kicker">Owners of a floor</div>
+            <h3>A partnership</h3>
+            <p>No franchise fee. No royalty. You show. We do the rest.</p>
+          </a>
+        </div>
+
+        <div class="contact-split" id="note">
+          <aside class="contact-aside">
+            <h2>Call headquarters</h2>
+            <p><a href="tel:+18888482630">888-848-2630</a></p>
+            <p><a href="tel:+12143074771">214-307-4771</a></p>
+            <p style="margin-top:28px"><strong>Email</strong><br>
+              <a href="mailto:jay.s@osakititan.com" style="font-size:18px">jay.s@osakititan.com</a></p>
+            <p style="margin-top:28px"><strong>Headquarters</strong><br>1001 W. Crosby Ln.<br>Carrollton, TX 75006</p>
+            <dl class="hours">
+              <div>
+                <dt>Monday – Friday</dt>
+                <dd>9:30 a.m. – 6:30 p.m.</dd>
+              </div>
+              <div>
+                <dt>Saturday</dt>
+                <dd>10:00 a.m. – 4:00 p.m.</dd>
+              </div>
+              <div>
+                <dt>Sunday</dt>
+                <dd>Closed</dd>
+              </div>
+            </dl>
+            <p style="margin-top:28px"><a href="https://maps.google.com/?q=1001+W+Crosby+Ln+Carrollton+TX+75006" target="_blank" rel="noopener">Directions</a></p>
+          </aside>
+          <form class="form" data-contact>
+            <p class="form-ok">Headquarters has the note. We will call you.</p>
+            <div class="form-row">
+              <div>
+                <label for="name">Name</label>
+                <input id="name" name="name" required>
+              </div>
+              <div>
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel">
+              </div>
+            </div>
+            <div class="form-row">
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required>
+              </div>
+              <div>
+                <label for="topic">I am inquiring about</label>
+                <select id="topic" name="topic">
+                  <option value="visit">A showroom visit</option>
+                  <option value="franchise">A partnership</option>
+                  <option value="service">Care &amp; service</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label for="city">City</label>
+              <input id="city" name="city" placeholder="So we can point you to a floor">
+            </div>
+            <div>
+              <label for="message">Message</label>
+              <textarea id="message" name="message"></textarea>
+            </div>
+            <button class="btn btn-gold" type="submit">Send to headquarters</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="logo logo-light" href="index.html" aria-label="OTA World">
+          <span class="logo-ota">OTA</span>
+          <span class="logo-world">World</span>
+          <span class="logo-brands">Osaki · Titan · AmaMedic</span>
+        </a>
+        <p>OTA World, LLC. America’s No. 1 choice in massage chairs. The house of Osaki, Titan, and AmaMedic. Carrollton, Texas. Est. 2005.</p>
+      </div>
+      <div>
+        <h3>The brands</h3>
+        <p>
+          <a href="https://www.osakiusa.com" target="_blank" rel="noopener">osakiusa.com</a><br>
+          <a href="https://titanchair.com" target="_blank" rel="noopener">titanchair.com</a><br>
+          <a href="https://amamedic.com" target="_blank" rel="noopener">amamedic.com</a>
+        </p>
+      </div>
+      <div>
+        <h3>Visit the house</h3>
+        <p>
+          <a href="stores.html">Showrooms</a><br>
+          <a href="products.html">Lineup</a><br>
+          <a href="care.html">Care &amp; service</a><br>
+          <a href="franchise.html">Partners</a><br>
+          <a href="privacy.html">Privacy</a>
+        </p>
+      </div>
+      <div>
+        <h3>Headquarters</h3>
+        <p>
+          <a href="tel:+18888482630">888-848-2630</a><br>
+          <a href="mailto:jay.s@osakititan.com">jay.s@osakititan.com</a><br>
+          1001 W. Crosby Ln.<br>Carrollton, TX 75006<br>
+          Mon–Fri 9:30 a.m. – 6:30 p.m.<br>
+          Sat 10:00 a.m. – 4:00 p.m. · Sun closed
+        </p>
+      </div>
+    </div>
+    <div class="container copyright">© 2026 OTA World, LLC. All rights reserved. · <a href="privacy.html">Privacy</a></div>
+  </footer>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>

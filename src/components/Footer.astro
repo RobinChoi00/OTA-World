@@ -1,0 +1,62 @@
+---
+import { site } from "../data/site";
+
+const mapsUrl = `https://maps.google.com/?q=${site.mapsQuery}`;
+---
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <a class="logo logo-light" href="/" aria-label={site.name}>
+        <span class="logo-ota">OTA</span>
+        <span class="logo-world">World</span>
+        <span class="logo-brands">Osaki · Titan · AmaMedic</span>
+      </a>
+      <p>
+        {site.legalName}. America’s No. 1 choice in massage chairs. The house of Osaki, Titan, and
+        AmaMedic. Carrollton, Texas. Est. {site.founded}.
+      </p>
+    </div>
+    <div>
+      <h3>The brands</h3>
+      <p>
+        {
+          site.brands.map((b, i) => (
+            <>
+              {i > 0 && <br />}
+              <a href={b.url} target="_blank" rel="noopener">
+                {b.url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}
+              </a>
+            </>
+          ))
+        }
+      </p>
+    </div>
+    <div>
+      <h3>Visit the house</h3>
+      <p>
+        <a href="/stores">Showrooms</a><br />
+        <a href="/products">Lineup</a><br />
+        <a href="/care">Care &amp; service</a><br />
+        <a href="/franchise">Partners</a><br />
+        <a href="/privacy">Privacy</a>
+      </p>
+    </div>
+    <div>
+      <h3>Headquarters</h3>
+      <p>
+        <a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a><br />
+        <a href={`mailto:${site.email}`}>{site.email}</a><br />
+        {site.addressLine}<br />{site.cityStateZip}<br />
+        Mon–Fri {site.hoursWeekday}<br />
+        Sat {site.hoursSaturday} · Sun closed
+      </p>
+      <p style="margin-top:12px">
+        <a href={mapsUrl} target="_blank" rel="noopener">Directions</a>
+      </p>
+    </div>
+  </div>
+  <div class="container copyright">
+    © {new Date().getFullYear()} {site.legalName}. All rights reserved. · <a href="/privacy">Privacy</a>
+  </div>
+</footer>

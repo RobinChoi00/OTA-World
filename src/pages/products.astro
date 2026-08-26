@@ -1,0 +1,117 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Lineup | OTA World"
+  description="Osaki, Titan, and AmaMedic — America’s No. 1 house of massage chairs. Sit with them in a showroom."
+>
+  <main id="main">
+    <section class="chapter-hero">
+      <img src="/assets/images/osaki-lifestyle.jpg" alt="Osaki in a living room" />
+      <div class="chapter-hero-veil"></div>
+      <div class="container chapter-hero-copy">
+        <div class="kicker">America’s No. 1 house</div>
+        <h1>Osaki. Titan.<br />AmaMedic.</h1>
+        <p class="lede">
+          The No. 1 choice for massage chairs in the U.S. Sit with them on the floor, then the house
+          delivers, installs, and stays.
+        </p>
+      </div>
+    </section>
+
+    <section class="who-grid container" style="padding:56px 0 64px">
+      <a href="#osaki">
+        <div class="kicker">Osaki</div>
+        <h3>The spa at home</h3>
+        <p class="muted">
+          For the guest who wants innovation — AI body scan, 4D and 5D — without leaving the house.
+        </p>
+      </a>
+      <a href="#titan">
+        <div class="kicker">Titan</div>
+        <h3>Power, honestly</h3>
+        <p class="muted">For the body that actually sits in it. Built without apology.</p>
+      </a>
+      <a href="#amamedic">
+        <div class="kicker">AmaMedic</div>
+        <h3>Recovery, quietly</h3>
+        <p class="muted">Therapeutic comfort without the appointment. Kept, not performed.</p>
+      </a>
+    </section>
+
+    <article class="spread" id="osaki">
+      <img src="/assets/images/osaki-lifestyle.jpg" alt="Osaki Highpointe 4D" />
+      <div class="spread-copy">
+        <div class="num">Maison 01</div>
+        <h2>Osaki</h2>
+        <p>
+          Innovation as a standard. America’s leading name in the chair. Sit with it on the floor,
+          then visit osakiusa.com for the full range.
+        </p>
+        <ul class="sit-models">
+          <li>Sit: Highpointe 4D</li>
+        </ul>
+        <div class="btn-row" style="margin-top:28px">
+          <a class="btn btn-gold" href="/stores">Sit with Osaki</a>
+          <a class="btn btn-outline-light" href="https://www.osakiusa.com" target="_blank" rel="noopener"
+            >osakiusa.com</a
+          >
+        </div>
+      </div>
+    </article>
+
+    <article class="spread spread-rev" id="titan">
+      <div class="spread-copy">
+        <div class="num">Maison 02</div>
+        <h2>Titan</h2>
+        <p>
+          Power without apology. The chair is chosen by sitting — then titanchair.com if you want the
+          catalog after.
+        </p>
+        <ul class="sit-models">
+          <li>Sit: Remedy Pro 4D</li>
+        </ul>
+        <div class="btn-row" style="margin-top:28px">
+          <a class="btn btn-gold" href="/stores">Sit with Titan</a>
+          <a class="btn btn-outline-light" href="https://titanchair.com" target="_blank" rel="noopener"
+            >titanchair.com</a
+          >
+        </div>
+      </div>
+      <img src="/assets/images/titan-chair.jpg" alt="Titan Remedy Pro 4D" />
+    </article>
+
+    <article class="spread" id="amamedic">
+      <img src="/assets/images/amamedic-lifestyle.webp" alt="AmaMedic Haven" />
+      <div class="spread-copy">
+        <div class="num">Maison 03</div>
+        <h2>AmaMedic</h2>
+        <p>
+          Recovery, quietly. Sit with it on the floor, then visit amamedic.com for the full range.
+        </p>
+        <ul class="sit-models">
+          <li>Sit: Haven</li>
+        </ul>
+        <div class="btn-row" style="margin-top:28px">
+          <a class="btn btn-gold" href="/stores">Sit with AmaMedic</a>
+          <a class="btn btn-outline-light" href="https://amamedic.com" target="_blank" rel="noopener"
+            >amamedic.com</a
+          >
+        </div>
+      </div>
+    </article>
+
+    <section class="section cta-band">
+      <div class="container">
+        <div class="kicker">The floor decides</div>
+        <h2>Compare them in person.</h2>
+        <p>Someone who knows the chairs will walk you through. Low pressure. Time to sit.</p>
+        <div class="btn-row" style="justify-content:center">
+          <a class="btn btn-gold" href="/contact?topic=visit">Book a sitting</a>
+          <a class="btn btn-outline-light" href="tel:+18888482630">888-848-2630</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

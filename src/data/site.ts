@@ -1,0 +1,76 @@
+export const site = {
+  name: "OTA World",
+  legalName: "OTA World, LLC",
+  slogan: "America's No. 1 choice for massage chairs",
+  url: "https://www.ota-world.com",
+  email: "jay.s@osakititan.com",
+  phoneDisplay: "888-848-2630",
+  phoneTel: "+18888482630",
+  phoneLocalDisplay: "214-307-4771",
+  phoneLocalTel: "+12143074771",
+  addressLine: "1001 W. Crosby Ln.",
+  cityStateZip: "Carrollton, TX 75006",
+  city: "Carrollton, Texas",
+  mapsQuery: "1001+W+Crosby+Ln+Carrollton+TX+75006",
+  hoursWeekday: "9:30 a.m. – 6:30 p.m.",
+  hoursSaturday: "10:00 a.m. – 4:00 p.m.",
+  hoursSunday: "Closed",
+  hoursShort: "Mon–Fri 9:30–6:30",
+  founded: "2005",
+  brands: [
+    { letter: "O", name: "Osaki", url: "https://www.osakiusa.com", sit: "Highpointe 4D" },
+    { letter: "T", name: "Titan", url: "https://titanchair.com", sit: "Remedy Pro 4D" },
+    { letter: "A", name: "AmaMedic", url: "https://amamedic.com", sit: "Haven" },
+  ],
+  ogImage: "/assets/images/home4.jpeg",
+} as const;
+
+export const orgJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: site.legalName,
+  slogan: site.slogan,
+  foundingDate: site.founded,
+  telephone: site.phoneTel,
+  email: site.email,
+  url: site.url,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: site.addressLine,
+    addressLocality: "Carrollton",
+    addressRegion: "TX",
+    postalCode: "75006",
+    addressCountry: "US",
+  },
+  brand: site.brands.map((b) => b.name),
+};
+
+export const storeJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FurnitureStore",
+  name: site.name,
+  telephone: site.phoneTel,
+  email: site.email,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: site.addressLine,
+    addressLocality: "Carrollton",
+    addressRegion: "TX",
+    postalCode: "75006",
+    addressCountry: "US",
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:30",
+      closes: "18:30",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: "Saturday",
+      opens: "10:00",
+      closes: "16:00",
+    },
+  ],
+};

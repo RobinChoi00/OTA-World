@@ -1,0 +1,132 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { storeJsonLd } from '../data/site';
+const jsonLd = storeJsonLd;
+---
+
+<BaseLayout
+  title='Showrooms | OTA World'
+  description='Sit at the Carrollton flagship: weekdays 9:30 a.m.–6:30 p.m., Saturday 10–4, Sunday closed. Call 888-848-2630.'
+  jsonLd={jsonLd}
+>
+<main id="main">
+    <section class="chapter-hero">
+      <img src="/assets/images/home-grid-5.jpg" alt="OTA World showroom at night" />
+      <div class="chapter-hero-veil"></div>
+      <div class="container chapter-hero-copy">
+        <div class="kicker">Showrooms</div>
+        <h1>Come sit.<br />We will make time.</h1>
+        <p class="lede">A low-pressure floor. Someone who knows the chairs. Book a sitting, walk into Carrollton, or tell us your city.</p>
+      </div>
+    </section>
+
+    <div class="paths">
+      <a href="/contact?topic=visit">
+        <div class="num">01</div>
+        <h3>Book a sitting</h3>
+        <p>Leave your city and a time that works. Headquarters will arrange the floor.</p>
+      </a>
+      <a href="#flagship">
+        <div class="num">02</div>
+        <h3>The flagship</h3>
+        <p>1001 W. Crosby Ln., Carrollton. Weekdays 9:30–6:30, Saturday 10–4. Sunday closed.</p>
+      </a>
+      <a href="tel:+18888482630">
+        <div class="num">03</div>
+        <h3>Call for a gallery</h3>
+        <p>A showroom with our name on the door, or a place in major retail including Costco.</p>
+      </a>
+      <a href="/contact?topic=visit">
+        <div class="num">04</div>
+        <h3>Tell us your city</h3>
+        <p>We point you to the nearest floor. No hunting through a map of strangers.</p>
+      </a>
+    </div>
+
+    <section class="section" id="flagship">
+      <div class="container hq">
+        <img src="/assets/images/home-grid-1.jpg" alt="OTA World headquarters in Carrollton" style="width:100%;height:100%;min-height:420px;object-fit:cover" />
+        <div class="hq-card">
+          <div class="kicker" style="color:var(--gold-light)">Flagship</div>
+          <h2>Carrollton headquarters</h2>
+          <p>1001 W. Crosby Ln.<br />Carrollton, TX 75006</p>
+          <p><a href="tel:+18888482630">888-848-2630</a><br />
+          <a href="tel:+12143074771">214-307-4771</a></p>
+          <dl class="hours">
+            <div>
+              <dt>Monday – Friday</dt>
+              <dd>9:30 a.m. – 6:30 p.m.</dd>
+            </div>
+            <div>
+              <dt>Saturday</dt>
+              <dd>10:00 a.m. – 4:00 p.m.</dd>
+            </div>
+            <div>
+              <dt>Sunday</dt>
+              <dd>Closed</dd>
+            </div>
+          </dl>
+          <div class="btn-row">
+            <a class="btn btn-gold" href="/contact?topic=visit">Book a sitting</a>
+            <a class="btn btn-outline-light" href="https://maps.google.com/?q=1001+W+Crosby+Ln+Carrollton+TX+75006" target="_blank" rel="noopener">Directions</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="map-wrap">
+      <iframe title="Map of OTA World headquarters in Carrollton" src="https://maps.google.com/maps?q=1001+W.+Crosby+Ln,+Carrollton,+TX+75006&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <section class="expect">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">A visit</div>
+          <h2>What to expect.</h2>
+        </div>
+        <div class="expect-list">
+          <article>
+            <b>Arrive</b>
+            <p>Time to sit. No hurry. The room is the catalog.</p>
+          </article>
+          <article>
+            <b>Be walked through</b>
+            <p>Someone who knows Osaki, Titan, and AmaMedic — like a floor expert, not a script.</p>
+          </article>
+          <article>
+            <b>Leave with a house</b>
+            <p>If you take a chair, delivery, installation, and warranty stay with Carrollton.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-warm">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">The rooms</div>
+          <h2>OTA World galleries</h2>
+          <p class="intro">Headquarters and partner floors — made for sitting.</p>
+        </div>
+        <div class="store-grid">
+          <figure class="shot">
+            <img src="/assets/images/home4.jpeg" alt="OTA World flagship interior" />
+            <figcaption>Flagship interior · Carrollton</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="/assets/images/home-grid-2.jpg" alt="OTA World mall showroom" />
+            <figcaption>A partner gallery</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="/assets/images/home-grid-4.jpg" alt="OTA World suite entrance" />
+            <figcaption>A house storefront</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="/assets/images/home-grid-5.jpg" alt="Illuminated OTA World sign" />
+            <figcaption>The house at night</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

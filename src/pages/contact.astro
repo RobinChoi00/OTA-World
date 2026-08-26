@@ -1,0 +1,121 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+
+const mapsUrl = `https://maps.google.com/?q=${site.mapsQuery}`;
+---
+
+<BaseLayout
+  title="Contact | OTA World"
+  description={`Call OTA World headquarters at ${site.phoneDisplay}, or leave a note for a sitting, partnership, or service.`}
+  bodyPage="contact"
+>
+  <main id="main">
+    <section class="chapter-hero">
+      <img src="/assets/images/home-grid-4.jpg" alt="OTA World storefront" />
+      <div class="chapter-hero-veil"></div>
+      <div class="container chapter-hero-copy">
+        <div class="kicker">Contact</div>
+        <h1>Start with a phone.<br />Or a note.</h1>
+        <p class="lede">A call is fastest. A note opens your mail app to headquarters.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="intents">
+          <a href="/contact?topic=visit#note">
+            <div class="kicker">Guests</div>
+            <h3>Book a sitting</h3>
+            <p>Flagship or a nearby gallery. Tell us your city and when you can come.</p>
+          </a>
+          <a href="/contact?topic=service#note">
+            <div class="kicker">Owners of a chair</div>
+            <h3>Care &amp; service</h3>
+            <p>Delivery, installation, warranty. The house stays after the truck.</p>
+          </a>
+          <a href="/contact?topic=franchise#note">
+            <div class="kicker">Owners of a floor</div>
+            <h3>A partnership</h3>
+            <p>No franchise fee. No royalty. You show. We do the rest.</p>
+          </a>
+        </div>
+
+        <div class="contact-split" id="note">
+          <aside class="contact-aside">
+            <h2>Call headquarters</h2>
+            <p><a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a></p>
+            <p><a href={`tel:${site.phoneLocalTel}`}>{site.phoneLocalDisplay}</a></p>
+            <p style="margin-top:28px">
+              <strong>Email</strong><br />
+              <a href={`mailto:${site.email}`} style="font-size:18px">{site.email}</a>
+            </p>
+            <p style="margin-top:28px">
+              <strong>Headquarters</strong><br />
+              {site.addressLine}<br />{site.cityStateZip}
+            </p>
+            <dl class="hours">
+              <div>
+                <dt>Monday – Friday</dt>
+                <dd>{site.hoursWeekday}</dd>
+              </div>
+              <div>
+                <dt>Saturday</dt>
+                <dd>{site.hoursSaturday}</dd>
+              </div>
+              <div>
+                <dt>Sunday</dt>
+                <dd>{site.hoursSunday}</dd>
+              </div>
+            </dl>
+            <p style="margin-top:28px">
+              <a href={mapsUrl} target="_blank" rel="noopener">Directions</a>
+            </p>
+          </aside>
+          <form class="form" data-contact>
+            <p class="form-ok">
+              Your mail app will open with the note for headquarters. If nothing opens, call
+              {site.phoneDisplay} or email {site.email}.
+            </p>
+            <p class="notice" style="margin:0 0 8px">
+              Send opens your email to {site.email}. Or call — a person answers.
+            </p>
+            <div class="form-row">
+              <div>
+                <label for="name">Name</label>
+                <input id="name" name="name" required autocomplete="name" />
+              </div>
+              <div>
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required autocomplete="email" />
+              </div>
+              <div>
+                <label for="topic">I am inquiring about</label>
+                <select id="topic" name="topic">
+                  <option value="visit">A showroom visit</option>
+                  <option value="franchise">A partnership</option>
+                  <option value="service">Care &amp; service</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label for="city">City</label>
+              <input id="city" name="city" placeholder="So we can point you to a floor" autocomplete="address-level2" />
+            </div>
+            <div>
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5"></textarea>
+            </div>
+            <button class="btn btn-gold" type="submit">Send to headquarters</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

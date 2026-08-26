@@ -1,0 +1,38 @@
+---
+import { site } from "../data/site";
+---
+
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a>
+      <span class="dot hide-sm">·</span>
+      <span class="hide-sm">{site.city}</span>
+      <span class="dot hide-sm">·</span>
+      <span class="hide-sm">{site.hoursShort}</span>
+    </div>
+    <div class="topbar-right hide-sm">America’s No. 1 · Est. {site.founded}</div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="logo" href="/" aria-label={site.name}>
+      <span class="logo-ota">OTA</span>
+      <span class="logo-world">World</span>
+      <span class="logo-brands">Osaki · Titan · AmaMedic</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="/about">The Brand</a></li>
+      <li><a href="/products">Lineup</a></li>
+      <li><a href="/stores">Showrooms</a></li>
+      <li><a href="/care">Care</a></li>
+      <li><a href="/franchise">Partners</a></li>
+      <li><a class="nav-cta" href="/contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
