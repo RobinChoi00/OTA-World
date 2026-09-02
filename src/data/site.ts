@@ -23,7 +23,112 @@ export const site = {
     { letter: "A", name: "AmaMedic", url: "https://amamedic.com", sit: "Haven" },
   ],
   ogImage: "/assets/images/home4.jpeg",
+  /** Intro video on the home page (high-end chairs) */
+  youtubeId: "9UmOR1BETis",
 } as const;
+
+/** Major retail & channels shown on the home partner rail */
+export const retailPartners = [
+  { name: "Costco", href: "https://www.costco.com" },
+  { name: "Ashley", href: "https://www.ashleyfurniture.com" },
+  { name: "Amazon", href: "https://www.amazon.com" },
+  { name: "Sam’s Club", href: "https://www.samsclub.com" },
+] as const;
+
+/** Nike-style mission lines (about) */
+export const mission = {
+  kicker: "Our mission",
+  lines: ["Show the chair", "in person.", "Stand behind it", "from Carrollton."],
+  footnote: "The showroom is not a side room. It is the business.",
+} as const;
+
+/** Duolingo-style welcome paths (about / secondary) */
+export const welcomePaths = [
+  {
+    num: "01",
+    label: "For the home",
+    title: "Sit before you buy",
+    text: "Osaki, Titan, and AmaMedic — on the floor, without hurry.",
+    href: "/dealers",
+    cta: "Find a dealer",
+  },
+  {
+    num: "02",
+    label: "The flagship",
+    title: "Visit Carrollton",
+    text: "Show, stock, and service under one Texas roof since 2005.",
+    href: "/dealers#flagship",
+    cta: "Plan a visit",
+  },
+  {
+    num: "03",
+    label: "For owners",
+    title: "Put our name on your door",
+    text: "No franchise fee. No royalty. You show the chair.",
+    href: "/franchise",
+    cta: "Explore partners",
+  },
+  {
+    num: "04",
+    label: "After the sale",
+    title: "Care from the house",
+    text: "Delivery, installation, warranty — Carrollton stays with the chair.",
+    href: "/care",
+    cta: "Care & service",
+  },
+] as const;
+
+/** LEGO-style purpose pillars (about) */
+export const purposePillars = [
+  {
+    title: "The showroom",
+    text: "The chair is decided in the room — not from a catalog that has moved on.",
+    href: "/dealers",
+    cta: "Plan a visit",
+  },
+  {
+    title: "The house after delivery",
+    text: "We bring the chair home, install it, and remain when service is needed.",
+    href: "/care",
+    cta: "Care & service",
+  },
+  {
+    title: "The partner floor",
+    text: "Owners show the chair. Training, trucks, and warranty stay in Carrollton.",
+    href: "/franchise",
+    cta: "Become a partner",
+  },
+  {
+    title: "The three names",
+    text: "Osaki, Titan, and AmaMedic — one house, shown in person across America.",
+    href: "/products",
+    cta: "See the lineup",
+  },
+] as const;
+
+/** Patagonia-style post-sale promise (home + care) */
+export const footprint = [
+  {
+    title: "Delivered",
+    text: "White-glove into the room — not left at the curb.",
+    href: "/care",
+  },
+  {
+    title: "Installed",
+    text: "Set up where it lives. Tested before we leave.",
+    href: "/care",
+  },
+  {
+    title: "Warrantied",
+    text: "The house stands behind Osaki, Titan, and AmaMedic.",
+    href: "/care",
+  },
+  {
+    title: "Serviced",
+    text: "Carrollton answers when the chair needs attention.",
+    href: "/contact?topic=service",
+  },
+] as const;
 
 export const orgJsonLd = {
   "@context": "https://schema.org",

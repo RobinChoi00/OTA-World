@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { mission, purposePillars } from '../data/site';
 ---
 
 <BaseLayout
@@ -43,6 +44,33 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <span><b>$3B</b> market by 2026</span>
       <span><b>2005</b> Carrollton</span>
     </div>
+
+    <section class="mission-statement mission-statement--about" data-reveal aria-labelledby="about-mission">
+      <p class="mission-statement-kicker">{mission.kicker}</p>
+      <h2 id="about-mission" class="mission-statement-lines">
+        {mission.lines.map((line) => (
+          <span>{line}</span>
+        ))}
+      </h2>
+      <p class="mission-statement-note"><sup>*</sup>{mission.footnote}</p>
+    </section>
+
+    <section class="purpose-deck" aria-labelledby="purpose-heading">
+      <div class="container purpose-deck-head" data-reveal>
+        <div class="kicker">What we stand for</div>
+        <h2 id="purpose-heading">Only a chair you have sat in<br />is good enough.</h2>
+        <p class="intro">Inspired by houses that publish their purpose plainly — the work of OTA World in four doors anyone can walk through.</p>
+      </div>
+      <div class="purpose-grid">
+        {purposePillars.map((pillar, i) => (
+          <article data-reveal style={i ? `--delay:${i * 0.08}s` : undefined}>
+            <h3>{pillar.title}</h3>
+            <p>{pillar.text}</p>
+            <a class="purpose-link" href={pillar.href}>{pillar.cta}<i aria-hidden="true">→</i></a>
+          </article>
+        ))}
+      </div>
+    </section>
 
     <section class="section">
       <div class="container">
@@ -158,7 +186,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </div>
           </dl>
           <div class="btn-row">
-            <a class="btn btn-gold" href="/stores">Visit the flagship</a>
+            <a class="btn btn-gold" href="/dealers">Visit the flagship</a>
             <a class="btn btn-outline-light" href="https://maps.google.com/?q=1001+W+Crosby+Ln+Carrollton+TX+75006" target="_blank" rel="noopener">Directions</a>
           </div>
         </div>
@@ -189,7 +217,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
       </div>
       <div class="intents">
-        <a href="/stores">
+        <a href="/dealers">
           <div class="kicker">For the home</div>
           <h3>The guest</h3>
           <p>Sit with Osaki, Titan, and AmaMedic before you buy. Low pressure. Time on the floor.</p>

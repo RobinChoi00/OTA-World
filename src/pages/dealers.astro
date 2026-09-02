@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site, storeJsonLd } from '../data/site';
+const jsonLd = storeJsonLd;
+const mapsUrl = `https://maps.google.com/?q=${site.mapsQuery}`;
+---
+
+<BaseLayout
+  title='Dealer Locator | OTA World'
+  description={`Find an OTA World showroom or major retail floor. Flagship: Carrollton, TX. Call ${site.phoneDisplay}.`}
+  jsonLd={jsonLd}
+>
+<main id="main">
+    <section class="chapter-hero">
+      <img src="/assets/images/home-grid-5.jpg" alt="OTA World showroom at night" />
+      <div class="chapter-hero-veil"></div>
+      <div class="container chapter-hero-copy">
+        <div class="kicker">Dealer Locator</div>
+        <h1>Find a floor<br />near you.</h1>
+        <p class="lede">Carrollton flagship, partner galleries, and major retail including Costco, Ashley, Amazon, and Sam’s Club. Tell us your city — we will point you to the nearest place to sit.</p>
+      </div>
+    </section>
+
+    <section class="locator-panel" aria-labelledby="locator-heading">
+      <div class="container locator-panel-inner" data-reveal>
+        <div>
+          <div class="kicker">Search</div>
+          <h2 id="locator-heading">Where should we send you?</h2>
+          <p>Leave your city or ZIP. Headquarters will reply with the nearest OTA World floor or retail location.</p>
+        </div>
+        <form class="locator-form" action={`mailto:${site.email}`} method="get" enctype="text/plain">
+          <input type="hidden" name="subject" value="Dealer Locator request — OTA World" />
+          <label>
+            <span>City or ZIP</span>
+            <input type="text" name="body" required placeholder="e.g. Dallas, TX or 75006" autocomplete="postal-code" />
+          </label>
+          <button class="btn btn-gold" type="submit">Find a dealer</button>
+          <p class="locator-or">or call <a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a></p>
+        </form>
+      </div>
+    </section>
+
+    <div class="paths">
+      <a href="#flagship">
+        <div class="num">01</div>
+        <h3>Flagship</h3>
+        <p>1001 W. Crosby Ln., Carrollton. Weekdays 9:30–6:30, Saturday 10–4. Sunday closed.</p>
+      </a>
+      <a href="/contact?topic=visit">
+        <div class="num">02</div>
+        <h3>Book a sitting</h3>
+        <p>Leave your city and a time that works. Headquarters will arrange the floor.</p>
+      </a>
+      <a href="#retail">
+        <div class="num">03</div>
+        <h3>Major retail</h3>
+        <p>Costco, Ashley, Amazon, Sam’s Club, and more — sit where you already shop.</p>
+      </a>
+      <a href={`tel:${site.phoneTel}`}>
+        <div class="num">04</div>
+        <h3>Call headquarters</h3>
+        <p>A person who knows the network — the fastest door for most guests.</p>
+      </a>
+    </div>
+
+    <section class="section" id="flagship">
+      <div class="container hq">
+        <img src="/assets/images/home-grid-1.jpg" alt="OTA World headquarters in Carrollton" style="width:100%;height:100%;min-height:420px;object-fit:cover" />
+        <div class="hq-card">
+          <div class="kicker" style="color:var(--gold-light)">Flagship</div>
+          <h2>Carrollton headquarters</h2>
+          <p>{site.addressLine}<br />{site.cityStateZip}</p>
+          <p><a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a><br />
+          <a href={`tel:${site.phoneLocalTel}`}>{site.phoneLocalDisplay}</a></p>
+          <dl class="hours">
+            <div>
+              <dt>Monday – Friday</dt>
+              <dd>{site.hoursWeekday}</dd>
+            </div>
+            <div>
+              <dt>Saturday</dt>
+              <dd>{site.hoursSaturday}</dd>
+            </div>
+            <div>
+              <dt>Sunday</dt>
+              <dd>{site.hoursSunday}</dd>
+            </div>
+          </dl>
+          <div class="btn-row">
+            <a class="btn btn-gold" href="/contact?topic=visit">Book a sitting</a>
+            <a class="btn btn-outline-light" href={mapsUrl} target="_blank" rel="noopener">Directions</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="map-wrap">
+      <iframe title="Map of OTA World headquarters in Carrollton" src="https://maps.google.com/maps?q=1001+W.+Crosby+Ln,+Carrollton,+TX+75006&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <section class="section bg-warm" id="retail">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">National floors</div>
+          <h2>Also available in major retail</h2>
+          <p class="intro">Sit with Osaki, Titan, and AmaMedic where America already shops. The house still stands behind the chair.</p>
+        </div>
+        <ul class="dealer-retail">
+          <li><span>Costco</span></li>
+          <li><span>Ashley</span></li>
+          <li><span>Amazon</span></li>
+          <li><span>Sam’s Club</span></li>
+        </ul>
+        <p class="dealer-retail-note">Need a specific city? <a href="/contact?topic=visit">Tell us where you are</a> — we will point you to the nearest floor.</p>
+      </div>
+    </section>
+
+    <section class="section bg-warm" style="padding-top:0">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">The rooms</div>
+          <h2>OTA World galleries</h2>
+          <p class="intro">Headquarters and partner floors — made for sitting.</p>
+        </div>
+        <div class="store-grid">
+          <figure class="shot">
+            <img src="/assets/images/home4.jpeg" alt="OTA World flagship interior" />
+            <figcaption>Flagship interior · Carrollton</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="/assets/images/home-grid-2.jpg" alt="OTA World mall showroom" />
+            <figcaption>A partner gallery</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="/assets/images/home-grid-4.jpg" alt="OTA World suite entrance" />
+            <figcaption>A house storefront</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="/assets/images/home-grid-5.jpg" alt="Illuminated OTA World sign" />
+            <figcaption>The house at night</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

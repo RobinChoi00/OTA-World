@@ -29,7 +29,16 @@ npm run preview
 - `src/styles.css` — site styles
 - `src/scripts/site.js` — menu, form (mailto), scroll, reveal
 - `public/assets/images` — photos and favicon
-- `_legacy` — previous static HTML (reference only)
+- `v1/` — optional local HTML reference only (not production)
+
+## Domains (Vercel)
+
+| Domain | Site |
+| --- | --- |
+| `v1.ota-world.com` | Existing Next.js (keep) |
+| `www.ota-world.com` / `ota-world.com` | This Astro project |
+
+Step-by-step: [`DEPLOY.md`](./DEPLOY.md)
 
 ## Pages
 
@@ -38,7 +47,7 @@ npm run preview
 | `/` | Home |
 | `/about` | The Brand |
 | `/products` | Lineup |
-| `/stores` | Showrooms |
+| `/dealers` | Dealer Locator |
 | `/care` | Care |
 | `/franchise` | Partners |
 | `/contact` | Contact |
