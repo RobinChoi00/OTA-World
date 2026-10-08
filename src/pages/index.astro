@@ -3,6 +3,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { orgJsonLd, retailPartners, site } from '../data/site';
 const jsonLd = orgJsonLd;
 const videoSrc = `https://www.youtube.com/embed/${site.youtubeId}?rel=0`;
+const lineup = [
+  { ...site.brands[0], image: '/assets/images/osaki-lifestyle.jpg', alt: 'Osaki Highpointe 4D', line: 'Innovation as a standard. America’s leading name in the chair.' },
+  { ...site.brands[1], image: '/assets/images/titan-chair.jpg', alt: 'Titan Remedy Pro 4D', line: 'Power without apology. Built for the body that sits in it.' },
+  { ...site.brands[2], image: '/assets/images/amamedic-lifestyle.webp', alt: 'AmaMedic Haven', line: 'Recovery, quietly. Therapeutic comfort without the appointment.' },
+];
 ---
 
 <BaseLayout
@@ -77,10 +82,11 @@ const videoSrc = `https://www.youtube.com/embed/${site.youtubeId}?rel=0`;
     </section>
 
     <section class="film-band" aria-labelledby="film-heading" data-reveal>
-      <div class="container film-band-head">
+      <div class="film-band-head">
         <div class="kicker">The chairs</div>
         <h2 id="film-heading">See the lineup in motion.</h2>
         <p class="intro">A short look at the high-end chairs of this house — then sit with them in person.</p>
+        <a class="btn btn-gold" href="/dealers">Find a dealer</a>
       </div>
       <div class="film-frame">
         <iframe
@@ -124,47 +130,31 @@ const videoSrc = `https://www.youtube.com/embed/${site.youtubeId}?rel=0`;
       </div>
     </section>
 
-    <article class="spread spread-osaki" data-reveal>
-      <span class="spine">Osaki</span>
-      <img src="/assets/images/osaki-lifestyle.jpg" alt="Osaki Highpointe 4D" />
-      <div class="spread-copy">
-        <div class="num">Lineup 01</div>
-        <h2>Osaki</h2>
-        <p>Innovation as a standard. America’s leading name in the chair — sit with it on the floor.</p>
-        <div class="btn-row" style="margin-top:28px">
-          <a class="btn btn-gold" href="/dealers">Sit with Osaki</a>
-          <a class="btn btn-outline-light" href="https://www.osakiusa.com" target="_blank" rel="noopener">osakiusa.com</a>
-        </div>
+    <section class="lineup-row" aria-labelledby="lineup-heading">
+      <div class="container lineup-row-head" data-reveal>
+        <div class="kicker" style="color:var(--gold-light)">The lineup</div>
+        <h2 id="lineup-heading">Three names. One house.</h2>
+        <a class="lineup-row-all" href="/products">See the full lineup <i aria-hidden="true">→</i></a>
       </div>
-    </article>
-
-    <article class="spread spread-rev spread-titan" data-reveal>
-      <span class="spine">Titan</span>
-      <div class="spread-copy">
-        <div class="num">Lineup 02</div>
-        <h2>Titan</h2>
-        <p>Power without apology. Built for the body that actually sits in it.</p>
-        <div class="btn-row" style="margin-top:28px">
-          <a class="btn btn-gold" href="/dealers">Sit with Titan</a>
-          <a class="btn btn-outline-light" href="https://titanchair.com" target="_blank" rel="noopener">titanchair.com</a>
-        </div>
+      <div class="lineup-cards">
+        {lineup.map((brand, i) => (
+          <article data-reveal style={i ? `--delay:${i * 0.08}s` : undefined}>
+            <div class="lineup-photo">
+              <img src={brand.image} alt={brand.alt} loading="lazy" />
+            </div>
+            <div class="lineup-copy">
+              <div class="num">Lineup 0{i + 1}</div>
+              <h3>{brand.name}</h3>
+              <p>{brand.line}</p>
+              <div class="lineup-links">
+                <a class="btn btn-gold" href="/dealers">Sit with {brand.name}</a>
+                <a class="lineup-site" href={brand.url} target="_blank" rel="noopener">{brand.url.replace(/^https?:\/\/(www\.)?/, "")} <i aria-hidden="true">↗</i></a>
+              </div>
+            </div>
+          </article>
+        ))}
       </div>
-      <img src="/assets/images/titan-chair.jpg" alt="Titan Remedy Pro 4D" />
-    </article>
-
-    <article class="spread spread-ama" data-reveal>
-      <span class="spine">AmaMedic</span>
-      <img src="/assets/images/amamedic-lifestyle.webp" alt="AmaMedic Haven" />
-      <div class="spread-copy">
-        <div class="num">Lineup 03</div>
-        <h2>AmaMedic</h2>
-        <p>Recovery, quietly. Therapeutic comfort without the appointment.</p>
-        <div class="btn-row" style="margin-top:28px">
-          <a class="btn btn-gold" href="/dealers">Sit with AmaMedic</a>
-          <a class="btn btn-outline-light" href="https://amamedic.com" target="_blank" rel="noopener">amamedic.com</a>
-        </div>
-      </div>
-    </article>
+    </section>
 
     <section class="doors">
       <a class="door-photo" href="/dealers" style="background-image:url(/assets/images/home4.jpeg)" data-reveal>
