@@ -294,25 +294,13 @@ a:hover > .link-arrow::after {
 
 .logo {
   display: inline-flex;
-  align-items: baseline;
-  gap: 5px;
+  align-items: center;
   flex-shrink: 0;
-  font-family: var(--display);
-  letter-spacing: -0.03em;
 }
 
-.logo-mark {
-  font-size: 23px;
-  font-weight: 800;
-}
-
-.logo-word {
-  font-size: 19px;
-  font-weight: 500;
-}
-
-.logo--light {
-  color: #fff;
+.logo img {
+  width: 140px;
+  height: auto;
 }
 
 .nav-links {
@@ -2175,8 +2163,17 @@ tr:last-child td {
     display: none;
   }
 
+  .nav {
+    gap: 12px;
+    padding-left: 16px;
+  }
+
+  .logo img {
+    width: 116px;
+  }
+
   .nav-cta {
-    padding: 0 18px;
+    padding: 0 16px;
     font-size: 14px;
   }
 
