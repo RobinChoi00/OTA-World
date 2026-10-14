@@ -8,11 +8,15 @@ import { site } from "../data/site";
   description="How OTA World, LLC handles inquiries sent to Carrollton headquarters."
 >
   <main id="main">
-    <section class="section">
-      <div class="container" style="max-width:720px">
-        <div class="kicker">{site.legalName}</div>
+    <section class="page-head">
+      <div class="wrap narrow">
+        <p class="eyebrow">{site.legalName}</p>
         <h1>Privacy</h1>
-        <p class="intro">
+      </div>
+    </section>
+    <section class="section section--tight">
+      <div class="wrap narrow prose">
+        <p class="page-lede">
           Inquiries are used to answer you — a sitting, a partnership, or service. We do not sell your
           name, phone, or email.
         </p>
@@ -24,9 +28,11 @@ import { site } from "../data/site";
           or write
           <a href={`mailto:${site.email}`}>{site.email}</a>.
         </p>
-        <p class="muted">
-          This page belongs to the company site. Brand catalogs at osakiusa.com, titanchair.com, and
-          amamedic.com have their own notices.
+        <p>
+          Product prices shown on this site are copied from the official brand store and link to it.
+          Purchases made there are covered by that store’s own notice. Brand sites at osakiusa.com,
+          titanchair.com, and amamedic.com have their own notices, and embedded YouTube videos and
+          Google Maps are governed by Google’s policies.
         </p>
       </div>
     </section>

@@ -1,39 +1,47 @@
 ---
 import { site } from "../data/site";
+
+const links = [
+  { href: "/products", label: "Lineup" },
+  { href: "/dealers", label: "Dealer Locator" },
+  { href: "/care", label: "Care" },
+  { href: "/franchise", label: "Partners" },
+  { href: "/about", label: "The Brand" },
+];
 ---
 
 <a class="skip-link" href="#main">Skip to content</a>
-<div class="topbar">
-  <div class="topbar-inner">
-    <div class="topbar-left">
-      <a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a>
-      <span class="dot hide-sm">·</span>
-      <span class="hide-sm">{site.city}</span>
-      <span class="dot hide-sm">·</span>
-      <span class="hide-sm">{site.hoursShort}</span>
-    </div>
-    <div class="topbar-right hide-sm">America’s No. 1 · Est. {site.founded}</div>
-  </div>
+<div class="announce">
+  <p>
+    <span>Sit before you buy — Osaki, Titan &amp; AmaMedic on the floor in {site.city}.</span>
+    <a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a>
+  </p>
 </div>
 
 <header class="site-header">
-  <div class="nav-inner">
-    <a class="logo" href="/" aria-label={site.name}>
-      <span class="logo-ota">OTA</span>
-      <span class="logo-world">World</span>
-      <span class="logo-brands">Osaki · Titan · AmaMedic</span>
+  <nav class="nav" aria-label="Main">
+    <a class="logo" href="/" aria-label={`${site.name} home`}>
+      <span class="logo-mark">OTA</span><span class="logo-word">World</span>
     </a>
-    <button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
     <ul class="nav-links">
-      <li><a href="/about">The Brand</a></li>
-      <li><a href="/products">Lineup</a></li>
-      <li><a href="/dealers">Dealer Locator</a></li>
-      <li><a href="/care">Care</a></li>
-      <li><a href="/franchise">Partners</a></li>
-      <li><a href="https://ledscopic.com" target="_blank" rel="noopener">LEDscopic</a></li>
-      <li><a class="nav-cta" href="/contact">Contact</a></li>
+      {links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+      <li>
+        <a href="https://ledscopic.com" target="_blank" rel="noopener">LEDscopic<span class="ext" aria-hidden="true">↗</span></a>
+      </li>
+      <li class="nav-links-mobile"><a href="/contact">Contact</a></li>
+      <li class="nav-links-mobile"><a href={`tel:${site.phoneTel}`}>Call {site.phoneDisplay}</a></li>
     </ul>
-  </div>
+    <div class="nav-actions">
+      <a class="nav-icon" href="/contact" aria-label="Contact">
+        <svg viewBox="0 0 24 24" width="20" height="20"><path d="M4 6h16v12H4z M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" /></svg>
+      </a>
+      <a class="nav-icon" href={`tel:${site.phoneTel}`} aria-label={`Call ${site.phoneDisplay}`}>
+        <svg viewBox="0 0 24 24" width="20" height="20"><path d="M6.6 3.5h3l1.5 4-2 1.3a11 11 0 0 0 6.1 6.1l1.3-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" /></svg>
+      </a>
+      <a class="pill pill--dark nav-cta" href="/dealers">Find a dealer</a>
+      <button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </nav>
 </header>

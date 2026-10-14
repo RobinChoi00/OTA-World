@@ -1,0 +1,386 @@
+{
+  "source": "https://osakiusa.com",
+  "syncedAt": "2026-10-14",
+  "products": [
+    {
+      "handle": "osaki-pro-4d-epic-le",
+      "brand": "Osaki",
+      "name": "Osaki Pro 4D Epic LE",
+      "badge": null,
+      "features": [
+        "Intelligent Health Detection",
+        "Dual Rail Massage System",
+        "Intelligent Voice Control"
+      ],
+      "price": 4999,
+      "compareAt": 7999,
+      "available": true,
+      "image": "/assets/products/osaki-pro-4d-epic-le.webp",
+      "studio": true,
+      "scene": "/assets/products/osaki-pro-4d-epic-le-scene.webp",
+      "url": "https://osakiusa.com/products/osaki-pro-4d-epic-le",
+      "featured": true
+    },
+    {
+      "handle": "osaki-aeris-4d-duo",
+      "brand": "Osaki",
+      "name": "Osaki Aeris 4D Duo",
+      "badge": "Free 2-yr ext. warranty",
+      "features": [
+        "Advanced 4D Dual Massage",
+        "Intelligent Health Detection",
+        "360° Rotating Footrest"
+      ],
+      "price": 4499,
+      "compareAt": 6999,
+      "available": true,
+      "image": "/assets/products/osaki-aeris-4d-duo.webp",
+      "studio": true,
+      "scene": "/assets/products/osaki-aeris-4d-duo-scene.webp",
+      "url": "https://osakiusa.com/products/osaki-aeris-4d-duo",
+      "featured": true
+    },
+    {
+      "handle": "osaki-highpointe-4d",
+      "brand": "Osaki",
+      "name": "Osaki OS-Highpointe 4D",
+      "badge": "5-yr warranty",
+      "features": [
+        "4D Massage Mechanism",
+        "Touchscreen Controller",
+        "Intelligent Voice Control"
+      ],
+      "price": 4999,
+      "compareAt": 12999,
+      "available": true,
+      "image": "/assets/products/osaki-highpointe-4d.webp",
+      "studio": true,
+      "scene": "/assets/products/osaki-highpointe-4d-scene.webp",
+      "url": "https://osakiusa.com/products/osaki-highpointe-4d",
+      "featured": true
+    },
+    {
+      "handle": "osaki-3d-quantum-massage-chair",
+      "brand": "Osaki",
+      "name": "Osaki 3D Quantum 2.0",
+      "badge": null,
+      "features": [
+        "Advanced 3D Massage Mechanism",
+        "SL-Track System",
+        "Body Scan Technology"
+      ],
+      "price": 2999,
+      "compareAt": 5999,
+      "available": true,
+      "image": "/assets/products/osaki-3d-quantum-massage-chair.webp",
+      "studio": true,
+      "scene": "/assets/products/osaki-3d-quantum-massage-chair-scene.webp",
+      "url": "https://osakiusa.com/products/osaki-3d-quantum-massage-chair",
+      "featured": false
+    },
+    {
+      "handle": "osaki-duke-xl-4d",
+      "brand": "Osaki",
+      "name": "Osaki Duke XL 4D",
+      "badge": "Free 2-yr ext. warranty",
+      "features": [
+        "Size-Accommodating Chair",
+        "4D Massage Mechanism",
+        "Intelligent Health Detection"
+      ],
+      "price": 6999,
+      "compareAt": 9999,
+      "available": true,
+      "image": "/assets/products/osaki-duke-xl-4d.webp",
+      "studio": true,
+      "scene": "/assets/products/osaki-duke-xl-4d-scene.webp",
+      "url": "https://osakiusa.com/products/osaki-duke-xl-4d",
+      "featured": false
+    },
+    {
+      "handle": "osaki-ai-apex-5d-4d-duo",
+      "brand": "Osaki",
+      "name": "Osaki Ai Apex 5D+4D Duo",
+      "badge": "Free 2-yr ext. warranty",
+      "features": [
+        "AI Health Detection",
+        "Dual 5D+4D Massage Mechanism",
+        "Easy Entry - Sliding Door System"
+      ],
+      "price": 12999,
+      "compareAt": 14999,
+      "available": true,
+      "image": "/assets/products/osaki-ai-apex-5d-4d-duo.webp",
+      "studio": true,
+      "scene": "/assets/products/osaki-ai-apex-5d-4d-duo-scene.webp",
+      "url": "https://osakiusa.com/products/osaki-ai-apex-5d-4d-duo",
+      "featured": true
+    },
+    {
+      "handle": "osaki-platinum-sapphire-4d",
+      "brand": "Osaki",
+      "name": "Osaki Platinum - Sapphire 4D+",
+      "badge": null,
+      "features": [
+        "4D+ Sonic Wave Tech",
+        "Ultra Mechanism (12 intensity levels)",
+        "Sonic Wave Foot Reflexology"
+      ],
+      "price": 13999,
+      "compareAt": 15999,
+      "available": true,
+      "image": "/assets/products/osaki-platinum-sapphire-4d.webp",
+      "studio": true,
+      "scene": "/assets/products/osaki-platinum-sapphire-4d-scene.webp",
+      "url": "https://osakiusa.com/products/osaki-platinum-sapphire-4d",
+      "featured": false
+    },
+    {
+      "handle": "osaki-oasis",
+      "brand": "Osaki",
+      "name": "Osaki Oasis",
+      "badge": null,
+      "features": [
+        "Full Body Sync Massage Mechanism",
+        "Lumbar & Calf Heating",
+        "Specialized Neck Massage"
+      ],
+      "price": 2499,
+      "compareAt": 5999,
+      "available": true,
+      "image": "/assets/products/osaki-oasis.webp",
+      "studio": true,
+      "scene": "/assets/products/osaki-oasis-scene.webp",
+      "url": "https://osakiusa.com/products/osaki-oasis",
+      "featured": false
+    },
+    {
+      "handle": "titan-vega-duo-massage-chair",
+      "brand": "Titan",
+      "name": "Titan Vega Duo 4D+3D",
+      "badge": null,
+      "features": [
+        "4D+3D Massage Mechanism",
+        "Computerized Body Scanning",
+        "SL-Track"
+      ],
+      "price": 5999,
+      "compareAt": 9999,
+      "available": true,
+      "image": "/assets/products/titan-vega-duo-massage-chair.webp",
+      "studio": true,
+      "scene": "/assets/products/titan-vega-duo-massage-chair-scene.webp",
+      "url": "https://osakiusa.com/products/titan-vega-duo-massage-chair",
+      "featured": true
+    },
+    {
+      "handle": "titan-ethos-duo-4d-3d",
+      "brand": "Titan",
+      "name": "Titan Ethos Duo 4D+3D",
+      "badge": null,
+      "features": [
+        "4D+3D Massage Mechanism",
+        "Computerized Body Scanning",
+        "SL-Track"
+      ],
+      "price": 5999,
+      "compareAt": null,
+      "available": true,
+      "image": "/assets/products/titan-ethos-duo-4d-3d.webp",
+      "studio": true,
+      "scene": "/assets/products/titan-ethos-duo-4d-3d-scene.webp",
+      "url": "https://osakiusa.com/products/titan-ethos-duo-4d-3d",
+      "featured": false
+    },
+    {
+      "handle": "titan-pro-4d-astro",
+      "brand": "Titan",
+      "name": "Titan Pro 4D Astro",
+      "badge": null,
+      "features": [
+        "Intelligent Health Detection",
+        "4D Massage Mechanism",
+        "Body Scan Technology"
+      ],
+      "price": 4499,
+      "compareAt": 5999,
+      "available": true,
+      "image": "/assets/products/titan-pro-4d-astro.webp",
+      "studio": true,
+      "scene": "/assets/products/titan-pro-4d-astro-scene.webp",
+      "url": "https://osakiusa.com/products/titan-pro-4d-astro",
+      "featured": true
+    },
+    {
+      "handle": "titan-tp-epic-4d",
+      "brand": "Titan",
+      "name": "Titan TP-Epic 4D",
+      "badge": null,
+      "features": [
+        "4D Massage Mechanism",
+        "Attentive Body Scan",
+        "SL-Track"
+      ],
+      "price": 3999,
+      "compareAt": 7999,
+      "available": true,
+      "image": "/assets/products/titan-tp-epic-4d.webp",
+      "studio": true,
+      "scene": "/assets/products/titan-tp-epic-4d-scene.webp",
+      "url": "https://osakiusa.com/products/titan-tp-epic-4d",
+      "featured": false
+    },
+    {
+      "handle": "titan-pro-4d-endor",
+      "brand": "Titan",
+      "name": "Titan Pro 4D Endor",
+      "badge": null,
+      "features": [
+        "4D Massage Mechanism",
+        "SL-Track",
+        "22 Cell Full Body Air Massage"
+      ],
+      "price": 3499,
+      "compareAt": 6999,
+      "available": true,
+      "image": "/assets/products/titan-pro-4d-endor.webp",
+      "studio": true,
+      "scene": "/assets/products/titan-pro-4d-endor-scene.webp",
+      "url": "https://osakiusa.com/products/titan-pro-4d-endor",
+      "featured": false
+    },
+    {
+      "handle": "titan-4d-ion-rt5653",
+      "brand": "Titan",
+      "name": "Titan 4D ION",
+      "badge": null,
+      "features": [
+        "Health Technology",
+        "Intelligent Voice Control",
+        "Rocking Massaging Position"
+      ],
+      "price": 3499,
+      "compareAt": 6999,
+      "available": true,
+      "image": "/assets/products/titan-4d-ion-rt5653.webp",
+      "studio": true,
+      "scene": "/assets/products/titan-4d-ion-rt5653-scene.webp",
+      "url": "https://osakiusa.com/products/titan-4d-ion-rt5653",
+      "featured": false
+    },
+    {
+      "handle": "osaki-forma",
+      "brand": "Titan",
+      "name": "Titan Forma 3D+2D",
+      "badge": null,
+      "features": [
+        "3D+ Massage Mechanism",
+        "Body Scan Technology",
+        "3-Stage Zero Gravity Reclining"
+      ],
+      "price": 3499,
+      "compareAt": 4999,
+      "available": true,
+      "image": "/assets/products/osaki-forma.webp",
+      "studio": true,
+      "scene": "/assets/products/osaki-forma-scene.webp",
+      "url": "https://osakiusa.com/products/osaki-forma",
+      "featured": false
+    },
+    {
+      "handle": "titan-gemini",
+      "brand": "Titan",
+      "name": "Titan Gemini",
+      "badge": null,
+      "features": [
+        "Full Body Sync Massage Mechanism",
+        "Lumbar & Calf Heating",
+        "Specialized Neck Massage"
+      ],
+      "price": 2999,
+      "compareAt": 5999,
+      "available": true,
+      "image": "/assets/products/titan-gemini.webp",
+      "studio": true,
+      "scene": "/assets/products/titan-gemini-scene.webp",
+      "url": "https://osakiusa.com/products/titan-gemini",
+      "featured": false
+    },
+    {
+      "handle": "amamedic-haven-4d",
+      "brand": "AmaMedic",
+      "name": "AmaMedic Haven 4D",
+      "badge": null,
+      "features": [
+        "AI Health Technology",
+        "Intelligent Voice Control",
+        "4D Massage Mechanism"
+      ],
+      "price": 2699,
+      "compareAt": 5999,
+      "available": true,
+      "image": "/assets/products/amamedic-haven-4d.webp",
+      "studio": true,
+      "scene": "/assets/products/amamedic-haven-4d-scene.webp",
+      "url": "https://osakiusa.com/products/amamedic-haven-4d",
+      "featured": true
+    },
+    {
+      "handle": "amamedic-ai-revive-4d",
+      "brand": "AmaMedic",
+      "name": "AmaMedic Ai Revive 4D",
+      "badge": null,
+      "features": [
+        "Health Fingerprint sensor",
+        "AI Health Detection",
+        "Intelligent Voice Control"
+      ],
+      "price": 3699,
+      "compareAt": 7999,
+      "available": true,
+      "image": "/assets/products/amamedic-ai-revive-4d.webp",
+      "studio": true,
+      "scene": "/assets/products/amamedic-ai-revive-4d-scene.webp",
+      "url": "https://osakiusa.com/products/amamedic-ai-revive-4d",
+      "featured": true
+    },
+    {
+      "handle": "amamedic-hilux-4d",
+      "brand": "AmaMedic",
+      "name": "AmaMedic Hilux 4D",
+      "badge": null,
+      "features": [
+        "4D Massage Mechanism",
+        "8 Auto Programs",
+        "Heated Back Roller"
+      ],
+      "price": 3299,
+      "compareAt": 8999,
+      "available": true,
+      "image": "/assets/products/amamedic-hilux-4d.webp",
+      "studio": true,
+      "scene": "/assets/products/amamedic-hilux-4d-scene.webp",
+      "url": "https://osakiusa.com/products/amamedic-hilux-4d",
+      "featured": false
+    },
+    {
+      "handle": "amamedic-3d-astoria",
+      "brand": "AmaMedic",
+      "name": "AmaMedic 3D Astoria",
+      "badge": null,
+      "features": [
+        "Intelligent Voice command",
+        "Zero Gravity Reclining",
+        "SL-Track"
+      ],
+      "price": 2499,
+      "compareAt": 5999,
+      "available": true,
+      "image": "/assets/products/amamedic-3d-astoria.webp",
+      "studio": true,
+      "scene": "/assets/products/amamedic-3d-astoria-scene.webp",
+      "url": "https://osakiusa.com/products/amamedic-3d-astoria",
+      "featured": false
+    }
+  ]
+}

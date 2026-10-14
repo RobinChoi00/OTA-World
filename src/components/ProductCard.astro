@@ -1,0 +1,35 @@
+---
+import { model, savings, usd, type Product } from "../data/catalog";
+
+interface Props {
+  product: Product;
+  lazy?: boolean;
+}
+
+const { product: p, lazy = true } = Astro.props;
+const save = savings(p);
+const tag = p.badge ?? (save >= 1000 ? `Save ${usd(save)}` : null);
+---
+
+<article class="pcard" data-brand={p.brand} data-price={p.price}>
+  <a class="pcard-link" href={p.url} target="_blank" rel="noopener" aria-label={`${p.name} on ${new URL(p.url).hostname}`}>
+    <div class="pcard-media">
+      {tag && <span class="pcard-tag">{tag}</span>}
+      <img src={p.image} alt={p.name} width="800" height="800" loading={lazy ? "lazy" : "eager"} decoding="async" />
+    </div>
+    <div class="pcard-body">
+      <p class="pcard-brand">{p.brand}</p>
+      <h3 class="pcard-name">{model(p)}</h3>
+      <p class="pcard-feat">{p.features.slice(0, 2).join(" · ")}</p>
+      <div class="pcard-foot">
+        <p class="pcard-price">
+          <b>{usd(p.price)}</b>
+          {p.compareAt && <s>{usd(p.compareAt)}</s>}
+        </p>
+        <span class="pcard-go" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </span>
+      </div>
+    </div>
+  </a>
+</article>

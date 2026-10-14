@@ -1,0 +1,36 @@
+---
+import ProductCard from "./ProductCard.astro";
+import { priceSource, type Product } from "../data/catalog";
+
+interface Props {
+  id: string;
+  title: string;
+  products: Product[];
+  href?: string;
+  hrefLabel?: string;
+  tone?: "light" | "gray";
+}
+
+const { id, title, products, href = "/products", hrefLabel = "Shop all", tone = "light" } = Astro.props;
+---
+
+<section class={`rail rail--${tone}`} aria-labelledby={id} data-rail>
+  <div class="wrap rail-head">
+    <h2 id={id}>{title}</h2>
+    <div class="rail-tools">
+      <a class="link-arrow" href={href}>{hrefLabel}</a>
+      <button class="rail-btn" type="button" data-dir="-1" aria-label="Previous">
+        <svg viewBox="0 0 24 24" width="18" height="18"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+      </button>
+      <button class="rail-btn" type="button" data-dir="1" aria-label="Next">
+        <svg viewBox="0 0 24 24" width="18" height="18"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+      </button>
+    </div>
+  </div>
+  <div class="rail-track" tabindex="0" aria-label={title}>
+    {products.map((p, i) => <ProductCard product={p} lazy={i > 3} />)}
+  </div>
+  <p class="wrap price-note">
+    Prices from <a href={priceSource.url} target="_blank" rel="noopener">{priceSource.name}</a> as of {priceSource.date}. Final price and promotions are set by the official store or your dealer.
+  </p>
+</section>

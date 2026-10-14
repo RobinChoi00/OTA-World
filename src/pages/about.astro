@@ -1,277 +1,155 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { mission, purposePillars } from '../data/site';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { mission, purposePillars, site } from "../data/site";
+import { find } from "../data/catalog";
+
+const letters = [
+  { letter: "O", name: "Osaki", text: "Innovation as a standard. A spa that lives at home.", image: find("osaki-pro-4d-epic-le").image },
+  { letter: "T", name: "Titan", text: "Power without apology. Built for the body that sits in it.", image: find("titan-vega-duo-massage-chair").image },
+  { letter: "A", name: "AmaMedic", text: "Recovery, quietly. Therapeutic comfort without the appointment.", image: find("amamedic-haven-4d").image },
+];
 ---
 
 <BaseLayout
-  title='The Brand | OTA World'
-  description='OTA is Osaki, Titan, and AmaMedic. OTA World, LLC is America’s No. 1 choice for massage chairs. Founded in Carrollton, Texas in 2005.'
-  bodyPage='about'
+  title="The Brand | OTA World"
+  description="OTA is Osaki, Titan, and AmaMedic. OTA World, LLC is America’s No. 1 choice for massage chairs. Founded in Carrollton, Texas in 2005."
+  bodyPage="about"
 >
-<main id="main">
-    <section class="chapter-hero">
-      <img src="/assets/images/home-grid-6.jpg" alt="OTA World storefront at night" />
-      <div class="chapter-hero-veil"></div>
-      <div class="container chapter-hero-copy">
-        <div class="kicker">America’s No. 1</div>
-        <h1>The leading house<br />in America.</h1>
-        <p class="lede">OTA is Osaki, Titan, and AmaMedic. Founded in Carrollton in 2005. No. 1 choice for massage chairs in the United States.</p>
+  <main id="main">
+    <section class="hero hero--short">
+      <img class="hero-img" src="/assets/images/home-grid-6.jpg" alt="OTA World storefront at night" fetchpriority="high" />
+      <div class="hero-shade"></div>
+      <div class="wrap hero-copy">
+        <p class="eyebrow">The Brand</p>
+        <h1>The leading house in America.</h1>
+        <p class="hero-lede">OTA is Osaki, Titan, and AmaMedic. Founded in Carrollton in {site.founded}.</p>
       </div>
     </section>
 
-    <div class="dossier">
-      <article>
-        <div class="kicker">Standing</div>
-        <b>No. 1 in the U.S.</b>
-      </article>
-      <article>
-        <div class="kicker">Founded</div>
-        <b>2005</b>
-      </article>
-      <article>
-        <div class="kicker">Headquarters</div>
-        <b>Carrollton, TX</b>
-      </article>
-      <article>
-        <div class="kicker">U.S. share</div>
-        <b>35%</b>
-      </article>
-    </div>
-
-    <div class="proof">
-      <span><b>No. 1</b> in the U.S.</span>
-      <span><b>35%</b> U.S. share</span>
-      <span><b>$3B</b> market by 2026</span>
-      <span><b>2005</b> Carrollton</span>
-    </div>
-
-    <section class="mission-statement mission-statement--about" data-reveal aria-labelledby="about-mission">
-      <p class="mission-statement-kicker">{mission.kicker}</p>
-      <h2 id="about-mission" class="mission-statement-lines">
-        {mission.lines.map((line) => (
-          <span>{line}</span>
-        ))}
-      </h2>
-      <p class="mission-statement-note"><sup>*</sup>{mission.footnote}</p>
-    </section>
-
-    <section class="purpose-deck" aria-labelledby="purpose-heading">
-      <div class="container purpose-deck-head" data-reveal>
-        <div class="kicker">What we stand for</div>
-        <h2 id="purpose-heading">Only a chair you have sat in<br />is good enough.</h2>
-        <p class="intro">Inspired by houses that publish their purpose plainly — the work of OTA World in four doors anyone can walk through.</p>
-      </div>
-      <div class="purpose-grid">
-        {purposePillars.map((pillar, i) => (
-          <article data-reveal style={i ? `--delay:${i * 0.08}s` : undefined}>
-            <h3>{pillar.title}</h3>
-            <p>{pillar.text}</p>
-            <a class="purpose-link" href={pillar.href}>{pillar.cta}<i aria-hidden="true">→</i></a>
-          </article>
-        ))}
+    <section class="stats" aria-label="At a glance">
+      <div class="wrap stats-row">
+        <p><b>No. 1</b><span>choice in the U.S.</span></p>
+        <p><b>35%</b><span>reported U.S. share</span></p>
+        <p><b>$3B</b><span>market by 2026</span></p>
+        <p><b>{site.founded}</b><span>Carrollton, Texas</span></p>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container">
+    <section class="manifesto" aria-labelledby="about-mission">
+      <div class="wrap">
+        <p class="eyebrow">{mission.kicker}</p>
+        <h2 id="about-mission">
+          {mission.lines.map((line) => <span>{line}</span>)}
+        </h2>
+        <p class="manifesto-note">{mission.footnote}</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="name-heading">
+      <div class="wrap">
         <div class="section-head">
-          <div class="kicker">The name</div>
-          <h2>OTA is the three names,<br />written as one.</h2>
-          <p class="intro">Osaki. Titan. AmaMedic. The letters are the house — not a slogan beside the brands, but the brands themselves.</p>
+          <div>
+            <h2 id="name-heading">OTA is the three names, written as one.</h2>
+            <p class="section-sub">The letters are the house — not a slogan beside the brands, but the brands themselves.</p>
+          </div>
         </div>
-      </div>
-      <div class="letters">
-        <article>
-          <b>O</b>
-          <h3>Osaki</h3>
-          <p>Innovation as a standard. A spa that lives at home.</p>
-        </article>
-        <article>
-          <b>T</b>
-          <h3>Titan</h3>
-          <p>Power without apology. Built for the body that sits in it.</p>
-        </article>
-        <article>
-          <b>A</b>
-          <h3>AmaMedic</h3>
-          <p>Recovery, quietly. Therapeutic comfort without the appointment.</p>
-        </article>
+        <div class="letters">
+          {letters.map((l) => (
+            <a class="letter-card" href={`/products?brand=${l.name}`}>
+              <b aria-hidden="true">{l.letter}</b>
+              <img src={l.image} alt="" loading="lazy" />
+              <h3>{l.name}</h3>
+              <p>{l.text}</p>
+              <span class="link-arrow">Shop {l.name}</span>
+            </a>
+          ))}
+        </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container">
+    <section class="section section--gray" aria-labelledby="origin-heading">
+      <div class="wrap">
         <div class="section-head">
-          <div class="kicker">Origin</div>
-          <h2>Founded in Carrollton, 2005.</h2>
-          <p class="intro">OTA World began as an importer that refused to sell a chair the guest had not sat in. Twenty years later it is America’s No. 1 house of massage chairs — still shown in person, still stood behind from Carrollton.</p>
+          <div>
+            <h2 id="origin-heading">Founded in Carrollton, {site.founded}.</h2>
+            <p class="section-sub">OTA World began as an importer that refused to sell a chair the guest had not sat in. Twenty years later it is America’s No. 1 house of massage chairs — still shown in person, still stood behind from Carrollton.</p>
+          </div>
         </div>
-        <div class="journey">
-          <article>
-            <b>2005</b>
-            <p>The house opens in Carrollton. The showroom is not a side room. It is the business.</p>
-          </article>
-          <article>
-            <b>OTA</b>
-            <p>Osaki, Titan, and AmaMedic — the three names written as one house, not three catalogs.</p>
-          </article>
-          <article>
-            <b>The floor</b>
-            <p>Franchise showrooms and major retail — including Costco — put the chairs where people can sit.</p>
-          </article>
-          <article>
-            <b>Today</b>
-            <p>America’s No. 1 choice. A reported 35% U.S. share, in a market moving toward $3 billion.</p>
-          </article>
-        </div>
+        <ol class="timeline">
+          <li><b>{site.founded}</b><p>The house opens in Carrollton. The showroom is not a side room. It is the business.</p></li>
+          <li><b>OTA</b><p>Osaki, Titan, and AmaMedic — the three names written as one house, not three catalogs.</p></li>
+          <li><b>The floor</b><p>Franchise showrooms and major retail — including Costco — put the chairs where people can sit.</p></li>
+          <li><b>Today</b><p>America’s No. 1 choice. A reported 35% U.S. share, in a market moving toward $3 billion.</p></li>
+        </ol>
       </div>
     </section>
 
-    <section class="essay">
-      <p>We are a Texas company that imports Osaki, Titan, and AmaMedic, shows them in a room, and remains after the chair leaves the floor.</p>
-    </section>
-
-    <section>
-      <div class="container" style="padding-top:72px">
+    <section class="section" aria-labelledby="work-heading">
+      <div class="wrap">
         <div class="section-head">
-          <div class="kicker">What we do</div>
-          <h2>One address. The rest of the company.</h2>
-          <p class="intro">Carrollton is headquarters, showroom, stock, and service under one roof. A guest sits here. A partner floor is trained from here. A chair at home is still stood behind from here.</p>
+          <div>
+            <h2 id="work-heading">One address. The rest of the company.</h2>
+            <p class="section-sub">Carrollton is headquarters, showroom, stock, and service under one roof.</p>
+          </div>
         </div>
-      </div>
-      <div class="glance">
-        <article>
-          <div class="num">01</div>
-          <h3>Import</h3>
-          <p>Osaki, Titan, and AmaMedic come to North America through this house — one company, three names.</p>
-        </article>
-        <article>
-          <div class="num">02</div>
-          <h3>Show</h3>
-          <p>The chair is decided in person. The flagship, partner galleries, and major retail including Costco.</p>
-        </article>
-        <article>
-          <div class="num">03</div>
-          <h3>Stock</h3>
-          <p>Inventory lives with headquarters. A partner shows the chair. They do not carry a second warehouse.</p>
-        </article>
-        <article>
-          <div class="num">04</div>
-          <h3>Stand behind</h3>
-          <p>Training, delivery, installation, and warranty stay in Carrollton — after the truck, and for the years after.</p>
-        </article>
+        <div class="cards4">
+          <article class="info-card"><span class="num">01</span><h3>Import</h3><p>Osaki, Titan, and AmaMedic come to North America through this house — one company, three names.</p></article>
+          <article class="info-card"><span class="num">02</span><h3>Show</h3><p>The chair is decided in person. The flagship, partner galleries, and major retail including Costco.</p></article>
+          <article class="info-card"><span class="num">03</span><h3>Stock</h3><p>Inventory lives with headquarters. A partner shows the chair without carrying a second warehouse.</p></article>
+          <article class="info-card"><span class="num">04</span><h3>Stand behind</h3><p>Training, delivery, installation, and warranty stay in Carrollton — after the truck, and for the years after.</p></article>
+        </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container hq">
-        <img src="/assets/images/home-grid-1.jpg" alt="OTA World headquarters in Carrollton" />
-        <div class="hq-card">
-          <div class="kicker" style="color:var(--gold-light)">Headquarters</div>
-          <h2>The Carrollton house</h2>
-          <p>1001 W. Crosby Ln.<br />Carrollton, TX 75006</p>
-          <p>Not a catalog wall. A working flagship — sit, stock, and service since 2005.</p>
+    <section class="section section--gray" aria-labelledby="hq-heading">
+      <div class="wrap duo">
+        <div class="duo-media">
+          <img src="/assets/images/home-grid-1.jpg" alt="OTA World headquarters in Carrollton" loading="lazy" />
+        </div>
+        <div class="duo-copy">
+          <p class="eyebrow">Headquarters</p>
+          <h2 id="hq-heading">The Carrollton house</h2>
+          <p>{site.addressLine}<br />{site.cityStateZip}</p>
+          <p>Not a catalog wall. A working flagship — sit, stock, and service since {site.founded}.</p>
           <dl class="hours">
-            <div>
-              <dt>Monday – Friday</dt>
-              <dd>9:30 a.m. – 6:30 p.m.</dd>
-            </div>
-            <div>
-              <dt>Saturday</dt>
-              <dd>10:00 a.m. – 4:00 p.m.</dd>
-            </div>
-            <div>
-              <dt>Sunday</dt>
-              <dd>Closed</dd>
-            </div>
+            <div><dt>Monday – Friday</dt><dd>{site.hoursWeekday}</dd></div>
+            <div><dt>Saturday</dt><dd>{site.hoursSaturday}</dd></div>
+            <div><dt>Sunday</dt><dd>{site.hoursSunday}</dd></div>
           </dl>
           <div class="btn-row">
-            <a class="btn btn-gold" href="/dealers">Visit the flagship</a>
-            <a class="btn btn-outline-light" href="https://maps.google.com/?q=1001+W+Crosby+Ln+Carrollton+TX+75006" target="_blank" rel="noopener">Directions</a>
+            <a class="pill pill--dark" href="/dealers#flagship">Visit the flagship</a>
+            <a class="pill pill--outline" href={`https://maps.google.com/?q=${site.mapsQuery}`} target="_blank" rel="noopener">Directions</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section bg-warm">
-      <div class="container quote-block">
-        <div class="quote-photo">
-          <img src="/assets/images/home4.jpeg" alt="OTA World flagship showroom" />
+    <section class="section" aria-labelledby="purpose-heading">
+      <div class="wrap">
+        <h2 id="purpose-heading" class="center-title">Only a chair you have sat in is good enough.</h2>
+        <div class="why">
+          {purposePillars.map((pillar, i) => (
+            <article>
+              <span class="why-icon" aria-hidden="true">0{i + 1}</span>
+              <h3>{pillar.title}</h3>
+              <p>{pillar.text}</p>
+              <a class="link-arrow" href={pillar.href}>{pillar.cta}</a>
+            </article>
+          ))}
         </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap band-inner">
         <div>
-          <div class="kicker">The work</div>
-          <blockquote>
-            <span>The showroom is not a side room. It is the business.</span>
-            <footer>Sit first. Then the house follows you home — delivery, installation, and warranty from Carrollton.</footer>
-          </blockquote>
+          <h2>The house does not leave with the truck.</h2>
+          <p>Training, delivery, installation, and warranty — a chair of this house is kept.</p>
         </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container" style="padding-top:72px">
-        <div class="section-head">
-          <div class="kicker">Who this house is for</div>
-          <h2>Three people. One company.</h2>
-          <p class="intro">OTA World is built so each can do their part — and none has to carry the rest of the company alone.</p>
+        <div class="btn-row">
+          <a class="pill pill--light" href="/care">Care &amp; service</a>
+          <a class="pill pill--ghost" href="/products">Shop the lineup</a>
         </div>
-      </div>
-      <div class="intents">
-        <a href="/dealers">
-          <div class="kicker">For the home</div>
-          <h3>The guest</h3>
-          <p>Sit with Osaki, Titan, and AmaMedic before you buy. Low pressure. Time on the floor.</p>
-        </a>
-        <a href="/care">
-          <div class="kicker">After the truck</div>
-          <h3>The owner of a chair</h3>
-          <p>Delivery and installation into the room. If service is needed, you call the same house that showed it.</p>
-        </a>
-        <a href="/franchise">
-          <div class="kicker">For the floor</div>
-          <h3>The owner of a showroom</h3>
-          <p>No franchise fee. No royalty. You show the chair. Training, trucks, and warranty stay with Carrollton.</p>
-        </a>
-      </div>
-    </section>
-
-    <section class="pillars">
-      <article>
-        <div class="num">I</div>
-        <h3>Received</h3>
-        <p>A guest is treated as if they have walked into our house — not a warehouse aisle.</p>
-      </article>
-      <article>
-        <div class="num">II</div>
-        <h3>Seated</h3>
-        <p>The body decides. The brands are shown in person, without hurry.</p>
-      </article>
-      <article>
-        <div class="num">III</div>
-        <h3>Kept</h3>
-        <p>After the chair goes home, delivery, installation, and warranty stay with Carrollton.</p>
-      </article>
-    </section>
-
-    <section class="way">
-      <div class="kicker">Philosophy</div>
-      <h2>The Showroom Standard</h2>
-      <p>Guests should trust the company, not only the chair. Owners should sell, without carrying inventory and service alone.</p>
-      <div class="way-words">
-        <span>Shown first.</span>
-        <i aria-hidden="true"></i>
-        <span>Served fully.</span>
-        <i aria-hidden="true"></i>
-        <span>Stood behind.</span>
-      </div>
-    </section>
-
-    <section class="care">
-      <div class="kicker">After the floor</div>
-      <h2>The house does not leave with the truck.</h2>
-      <p>Training, delivery, installation, and warranty. A chair of this house is kept — not set aside when the next catalog arrives.</p>
-      <div class="btn-row" style="justify-content:center;margin-top:32px">
-        <a class="btn btn-gold" href="/care">Care &amp; service</a>
       </div>
     </section>
   </main>

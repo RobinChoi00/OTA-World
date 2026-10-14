@@ -2,63 +2,71 @@
 import { site } from "../data/site";
 
 const mapsUrl = `https://maps.google.com/?q=${site.mapsQuery}`;
+const host = (url: string) => url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
 ---
 
 <footer class="site-footer">
-  <div class="container footer-grid">
+  <div class="wrap footer-top">
     <div>
-      <a class="logo logo-light" href="/" aria-label={site.name}>
-        <span class="logo-ota">OTA</span>
-        <span class="logo-world">World</span>
-        <span class="logo-brands">Osaki · Titan · AmaMedic</span>
-      </a>
-      <p>
-        {site.legalName}. America’s No. 1 choice in massage chairs. The house of Osaki, Titan, and
-        AmaMedic. Carrollton, Texas. Est. {site.founded}.
-      </p>
+      <h2>Sit before you buy.</h2>
+      <p>Tell us your city or ZIP. Headquarters will point you to the nearest floor.</p>
+    </div>
+    <form class="footer-form" action={`mailto:${site.email}`} method="get" enctype="text/plain">
+      <input type="hidden" name="subject" value="Dealer Locator request — OTA World" />
+      <label class="sr-only" for="footer-zip">City or ZIP</label>
+      <input id="footer-zip" type="text" name="body" required placeholder="City or ZIP" autocomplete="postal-code" />
+      <button class="pill pill--light" type="submit">Find a dealer</button>
+    </form>
+  </div>
+
+  <div class="wrap footer-cols">
+    <div>
+      <h3>Lineup</h3>
+      <ul>
+        {site.brands.map((b) => <li><a href={`/products?brand=${b.name}`}>{b.name}</a></li>)}
+        <li><a href="/products">All chairs</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Help</h3>
+      <ul>
+        <li><a href="/dealers">Dealer Locator</a></li>
+        <li><a href="/care">Care &amp; service</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Company</h3>
+      <ul>
+        <li><a href="/about">The Brand</a></li>
+        <li><a href="/franchise">Partners</a></li>
+        <li><a href="/privacy">Privacy</a></li>
+      </ul>
     </div>
     <div>
       <h3>The brands</h3>
-      <p>
-        {
-          site.brands.map((b, i) => (
-            <>
-              {i > 0 && <br />}
-              <a href={b.url} target="_blank" rel="noopener">
-                {b.url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}
-              </a>
-            </>
-          ))
-        }
-        <br />
-        <a href="https://ledscopic.com" target="_blank" rel="noopener">ledscopic.com</a>
-      </p>
-    </div>
-    <div>
-      <h3>Visit the house</h3>
-      <p>
-        <a href="/dealers">Dealer Locator</a><br />
-        <a href="/products">Lineup</a><br />
-        <a href="/care">Care &amp; service</a><br />
-        <a href="/franchise">Partners</a><br />
-        <a href="/privacy">Privacy</a>
-      </p>
+      <ul>
+        {site.brands.map((b) => <li><a href={b.url} target="_blank" rel="noopener">{host(b.url)}</a></li>)}
+        <li><a href="https://ledscopic.com" target="_blank" rel="noopener">ledscopic.com</a></li>
+      </ul>
     </div>
     <div>
       <h3>Headquarters</h3>
-      <p>
-        <a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a><br />
-        <a href={`mailto:${site.email}`}>{site.email}</a><br />
+      <address>
         {site.addressLine}<br />{site.cityStateZip}<br />
+        <a href={`mailto:${site.email}`}>{site.email}</a><br />
         Mon–Fri {site.hoursWeekday}<br />
-        Sat {site.hoursSaturday} · Sun closed
-      </p>
-      <p style="margin-top:12px">
-        <a href={mapsUrl} target="_blank" rel="noopener">Directions</a>
-      </p>
+        Sat {site.hoursSaturday} · Sun closed<br />
+        <a href={mapsUrl} target="_blank" rel="noopener">Directions ↗</a>
+      </address>
     </div>
   </div>
-  <div class="container copyright">
-    © {new Date().getFullYear()} {site.legalName}. All rights reserved. · <a href="/privacy">Privacy</a>
+
+  <div class="wrap footer-base">
+    <a class="logo logo--light" href="/" aria-label={site.name}>
+      <span class="logo-mark">OTA</span><span class="logo-word">World</span>
+    </a>
+    <p>© {new Date().getFullYear()} {site.legalName} · Osaki · Titan · AmaMedic · Est. {site.founded}</p>
   </div>
 </footer>

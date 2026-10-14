@@ -1,185 +1,225 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { orgJsonLd, retailPartners, site } from '../data/site';
-const jsonLd = orgJsonLd;
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProductRail from "../components/ProductRail.astro";
+import { orgJsonLd, retailPartners, site } from "../data/site";
+import { budgets, byBrand, featured, find, inBudget, model, products, usd } from "../data/catalog";
+
 const videoSrc = `https://www.youtube.com/embed/${site.youtubeId}?rel=0`;
-const lineup = [
-  { ...site.brands[0], image: '/assets/images/osaki-lifestyle.jpg', alt: 'Osaki Highpointe 4D', line: 'Innovation as a standard. America’s leading name in the chair.' },
-  { ...site.brands[1], image: '/assets/images/titan-chair.jpg', alt: 'Titan Remedy Pro 4D', line: 'Power without apology. Built for the body that sits in it.' },
-  { ...site.brands[2], image: '/assets/images/amamedic-lifestyle.webp', alt: 'AmaMedic Haven', line: 'Recovery, quietly. Therapeutic comfort without the appointment.' },
+const spotlight = find("osaki-pro-4d-epic-le");
+const brandPanels = [
+  {
+    name: "Osaki",
+    line: "Innovation as a standard.",
+    image: "/assets/products/osaki-aeris-4d-duo-wide.webp",
+    alt: "Osaki Aeris 4D Duo in a living room",
+    models: byBrand("Osaki").slice(0, 5),
+  },
+  {
+    name: "Titan",
+    line: "Power without apology.",
+    image: "/assets/products/titan-vega-duo-massage-chair-wide.webp",
+    alt: "Titan Vega Duo in a city apartment",
+    models: byBrand("Titan").slice(0, 5),
+  },
+  {
+    name: "AmaMedic",
+    line: "Recovery, quietly.",
+    image: "/assets/products/amamedic-haven-4d-wide.webp",
+    alt: "AmaMedic Haven 4D in a living room",
+    models: byBrand("AmaMedic"),
+  },
 ];
+const budgetCards = budgets.map((b) => ({
+  ...b,
+  count: products.filter((p) => inBudget(p, b.id)).length,
+  image: products.find((p) => inBudget(p, b.id) && p.featured)?.image ?? products.find((p) => inBudget(p, b.id))!.image,
+}));
 ---
 
 <BaseLayout
-  title='OTA World | America’s No. 1 House of Massage Chairs'
-  description='OTA World, LLC — America’s No. 1 choice for massage chairs. The house of Osaki, Titan, and AmaMedic. Carrollton, Texas since 2005. 35% U.S. share.'
-  ogTitle='OTA World | America’s No. 1'
-  ogDescription='The American house of Osaki, Titan, and AmaMedic. No. 1 choice for massage chairs in the U.S.'
-  bodyPage='home'
-  jsonLd={jsonLd}
+  title="OTA World | Osaki, Titan & AmaMedic Massage Chairs"
+  description="OTA World, LLC — America’s No. 1 choice for massage chairs. Shop Osaki, Titan, and AmaMedic, then sit with them in Carrollton, Texas. Since 2005."
+  ogTitle="OTA World | America’s No. 1 house of massage chairs"
+  ogDescription="Osaki, Titan, and AmaMedic. Shop the lineup, then sit before you buy."
+  bodyPage="home"
+  jsonLd={orgJsonLd}
 >
-<main id="main">
+  <main id="main">
     <section class="hero">
-      <div class="hero-media">
-        <img src="/assets/images/home4.jpeg" alt="OTA World flagship showroom in Carrollton" />
-      </div>
-      <div class="hero-veil"></div>
-      <div class="hero-corners" aria-hidden="true">
-        <span></span><span></span><span></span><span></span>
-      </div>
-      <p class="hero-llc">America’s No. 1</p>
-      <div class="hero-identity">
-        <p class="hero-place">No. 1 in the United States · Est. 2005</p>
-        <h1><span class="hero-ota">OTA</span> <span class="hero-world">World</span></h1>
-        <p class="lede">OTA is Osaki, Titan, and AmaMedic. America’s No. 1 choice in massage chairs.</p>
+      <img class="hero-img" src="/assets/products/osaki-ai-apex-5d-4d-duo-wide.webp" alt="A man rising from an Osaki Ai Apex Duo massage chair" fetchpriority="high" />
+      <div class="hero-shade"></div>
+      <div class="wrap hero-copy">
+        <p class="eyebrow">America’s No. 1 choice for massage chairs</p>
+        <h1>Recovery,<br />built in.</h1>
+        <p class="hero-lede">Osaki, Titan, and AmaMedic — one house since {site.founded}.</p>
         <div class="hero-actions">
-          <a class="btn btn-gold" href="/dealers">Dealer Locator</a>
-          <a class="btn btn-outline" href="/about">The company</a>
+          <a class="pill pill--light" href="/products">Shop the lineup</a>
+          <a class="pill pill--ghost" href="/dealers">Find a dealer</a>
         </div>
       </div>
     </section>
 
-    <div class="floorbar">
-      <p>
-        <b>Call the house</b>
-        <a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a>
-      </p>
-      <p>
-        <b>Headquarters</b>
-        <span>{site.addressLine}<br />{site.cityStateZip}</span>
-      </p>
-      <p>
-        <b>Flagship hours</b>
-        <span>Mon–Fri {site.hoursWeekday}<br />Sat {site.hoursSaturday} · Sun closed</span>
-      </p>
-    </div>
+    <ProductRail id="featured-heading" title="Featured chairs" products={featured} />
 
-    <div class="proof">
-      <span><b>No. 1</b> in the U.S.</span>
-      <span><b>35%</b> U.S. share</span>
-      <span><b>$3B</b> market by 2026</span>
-      <span><b>2005</b> Carrollton</span>
-    </div>
-
-    <section class="partner-rail" aria-labelledby="partners-heading" data-reveal>
-      <div class="container partner-rail-head">
-        <div class="kicker">Where America sits with us</div>
-        <h2 id="partners-heading">Trusted in major retail.</h2>
-        <p class="intro">Osaki, Titan, and AmaMedic reach guests through national floors — and through OTA World showrooms across the country.</p>
-      </div>
-      <ul class="partner-marks">
-        {retailPartners.map((partner) => (
-          <li>
-            <a href={partner.href} target="_blank" rel="noopener noreferrer" aria-label={partner.name}>
-              <span class={`partner-wordmark partner-${partner.name.toLowerCase().replace(/[^a-z]/g, "")}`}>{partner.name}</span>
-            </a>
-          </li>
-        ))}
-      </ul>
-      <p class="partner-rail-note">
-        <a href="/dealers">Find a dealer near you <i aria-hidden="true">→</i></a>
-      </p>
+    <section class="brand-panels" aria-label="Shop by brand">
+      {brandPanels.map((b) => (
+        <article class="brand-panel">
+          <img src={b.image} alt={b.alt} loading="lazy" />
+          <div class="brand-panel-copy">
+            <p class="eyebrow">{b.line}</p>
+            <h2>{b.name}</h2>
+            <ul>
+              {b.models.map((m) => (
+                <li><a href={m.url} target="_blank" rel="noopener">{model(m)}</a></li>
+              ))}
+            </ul>
+            <a class="pill pill--light" href={`/products?brand=${b.name}`}>Shop {b.name}</a>
+          </div>
+        </article>
+      ))}
     </section>
 
-    <section class="film-band" aria-labelledby="film-heading" data-reveal>
-      <div class="film-band-head">
-        <div class="kicker">The chairs</div>
-        <h2 id="film-heading">See the lineup in motion.</h2>
-        <p class="intro">A short look at the high-end chairs of this house — then sit with them in person.</p>
-        <a class="btn btn-gold" href="/dealers">Find a dealer</a>
-      </div>
-      <div class="film-frame">
-        <iframe
-          src={videoSrc}
-          title="OTA World high-end massage chairs"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-          referrerpolicy="strict-origin-when-cross-origin"
-        ></iframe>
-      </div>
-    </section>
-
-    <section class="house-visuals" aria-labelledby="house-visuals-heading" data-reveal>
-      <div class="house-visuals-copy">
-        <div class="kicker" style="color:var(--gold-light)">The Carrollton house</div>
-        <h2 id="house-visuals-heading">Showroom. Warehouse.<br />One address.</h2>
-        <p>Headquarters since 2005 — sit on the floor, stock in the building, service from the same roof.</p>
-        <div class="btn-row" style="margin-top:28px">
-          <a class="btn btn-gold" href="/dealers#flagship">Visit the flagship</a>
-          <a class="btn btn-outline-light" href="/about">Our story</a>
+    <section class="section" aria-labelledby="budget-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="budget-heading">Shop by budget</h2>
+          <a class="link-arrow" href="/products">All {products.length} chairs</a>
         </div>
-      </div>
-      <div class="house-visuals-grid">
-        <figure>
-          <img src="/assets/images/home-grid-1.jpg" alt="OTA World headquarters exterior sign" />
-          <figcaption>Headquarters · Crosby Ln.</figcaption>
-        </figure>
-        <figure>
-          <img src="/assets/images/home4.jpeg" alt="OTA World flagship showroom interior" />
-          <figcaption>Flagship showroom</figcaption>
-        </figure>
-        <figure>
-          <img src="/assets/images/home-grid-6.jpg" alt="OTA World storefront at night" />
-          <figcaption>The house at night</figcaption>
-        </figure>
-        <figure>
-          <img src="/assets/images/home-grid-5.jpg" alt="OTA World illuminated exterior" />
-          <figcaption>Warehouse &amp; floor</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="lineup-row" aria-labelledby="lineup-heading">
-      <div class="container lineup-row-head" data-reveal>
-        <div class="kicker" style="color:var(--gold-light)">The lineup</div>
-        <h2 id="lineup-heading">Three names. One house.</h2>
-        <a class="lineup-row-all" href="/products">See the full lineup <i aria-hidden="true">→</i></a>
-      </div>
-      <div class="lineup-cards">
-        {lineup.map((brand, i) => (
-          <article data-reveal style={i ? `--delay:${i * 0.08}s` : undefined}>
-            <div class="lineup-photo">
-              <img src={brand.image} alt={brand.alt} loading="lazy" />
-            </div>
-            <div class="lineup-copy">
-              <div class="num">Lineup 0{i + 1}</div>
-              <h3>{brand.name}</h3>
-              <p>{brand.line}</p>
-              <div class="lineup-links">
-                <a class="btn btn-gold" href="/dealers">Sit with {brand.name}</a>
-                <a class="lineup-site" href={brand.url} target="_blank" rel="noopener">{brand.url.replace(/^https?:\/\/(www\.)?/, "")} <i aria-hidden="true">↗</i></a>
+        <div class="tiles">
+          {budgetCards.map((b) => (
+            <a class="tile" href={`/products?budget=${b.id}`}>
+              <img src={b.image} alt="" loading="lazy" />
+              <div>
+                <h3>{b.label}</h3>
+                <p>{b.text}</p>
+                <span class="pill pill--dark pill--sm">{b.count} chairs</span>
               </div>
-            </div>
-          </article>
-        ))}
-      </div>
-    </section>
-
-    <section class="doors">
-      <a class="door-photo" href="/dealers" style="background-image:url(/assets/images/home4.jpeg)" data-reveal>
-        <div class="kicker">For the home</div>
-        <h2>Find a dealer.</h2>
-        <p>Flagship, partner gallery, or major retail. The chair is decided in the room.</p>
-      </a>
-      <a class="door-photo" href="/franchise" data-reveal style="background-image:url(/assets/images/home-grid-2.jpg);--delay:0.1s">
-        <div class="kicker">For the owner</div>
-        <h2>Put our name on your door.</h2>
-        <p>No franchise fee. No royalty. You show the chair. The house does the rest.</p>
-      </a>
-    </section>
-
-    <section class="section cta-band">
-      <div class="container">
-        <div class="kicker">The leading house is open</div>
-        <h2>OTA World, LLC</h2>
-        <p>America’s No. 1 choice in massage chairs. Sit in Carrollton. Or put our name on your door.</p>
-        <a class="phone-xl" href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a>
-        <div class="btn-row" style="justify-content:center">
-          <a class="btn btn-gold" href="/contact">Contact headquarters</a>
-          <a class="btn btn-outline" href="/dealers">Dealer Locator</a>
+            </a>
+          ))}
         </div>
       </div>
+    </section>
+
+    <section class="spotlight" aria-labelledby="spotlight-heading">
+      <img src={spotlight.scene} alt={`${spotlight.name} in a living room`} loading="lazy" />
+      <div class="wrap spotlight-inner">
+        <div class="spotlight-card">
+          <p class="eyebrow">Spotlight · {spotlight.brand}</p>
+          <h2 id="spotlight-heading">{model(spotlight)}</h2>
+          <ul class="ticks">
+            {spotlight.features.map((f) => <li>{f}</li>)}
+          </ul>
+          <p class="spotlight-price">
+            <b>{usd(spotlight.price)}</b>
+            {spotlight.compareAt && <s>{usd(spotlight.compareAt)}</s>}
+          </p>
+          <div class="btn-row">
+            <a class="pill pill--dark" href={spotlight.url} target="_blank" rel="noopener">Shop now</a>
+            <a class="pill pill--outline" href="/dealers">Sit with it</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark" aria-labelledby="film-heading">
+      <div class="wrap film">
+        <div class="film-copy">
+          <p class="eyebrow">In motion</p>
+          <h2 id="film-heading">See the chairs at work.</h2>
+          <p>A short look at the high-end chairs of this house — then sit with them in person.</p>
+          <a class="pill pill--light" href="/dealers">Find a dealer</a>
+        </div>
+        <div class="film-frame">
+          <iframe
+            src={videoSrc}
+            title="OTA World high-end massage chairs"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            referrerpolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="house-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2 id="house-heading">Showroom. Warehouse. One address.</h2>
+            <p class="section-sub">Headquarters in Carrollton since {site.founded} — sit on the floor, stock in the building, service from the same roof.</p>
+          </div>
+          <a class="link-arrow" href="/dealers#flagship">Visit the flagship</a>
+        </div>
+        <div class="mosaic">
+          <figure class="mosaic-big">
+            <img src="/assets/images/home4.jpeg" alt="OTA World flagship showroom interior" loading="lazy" />
+            <figcaption>Flagship showroom</figcaption>
+          </figure>
+          <figure>
+            <img src="/assets/images/home-grid-1.jpg" alt="OTA World headquarters exterior sign" loading="lazy" />
+            <figcaption>Headquarters · Crosby Ln.</figcaption>
+          </figure>
+          <figure>
+            <img src="/assets/images/home-grid-5.jpg" alt="OTA World warehouse and floor at night" loading="lazy" />
+            <figcaption>Warehouse &amp; floor</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="partners" aria-labelledby="partners-heading">
+      <div class="wrap partners-inner">
+        <h2 id="partners-heading">Also on the floor at</h2>
+        <ul>
+          {retailPartners.map((partner) => (
+            <li>
+              <a href={partner.href} target="_blank" rel="noopener noreferrer">{partner.name}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="why-heading">
+      <div class="wrap">
+        <h2 id="why-heading" class="center-title">Why buy from the house</h2>
+        <div class="why">
+          <article>
+            <span class="why-icon" aria-hidden="true">01</span>
+            <h3>Sit before you buy</h3>
+            <p>Every model is decided in the room — at the flagship or a partner floor.</p>
+          </article>
+          <article>
+            <span class="why-icon" aria-hidden="true">02</span>
+            <h3>Delivered &amp; installed</h3>
+            <p>White-glove into the room, set up where it lives, tested before we leave.</p>
+          </article>
+          <article>
+            <span class="why-icon" aria-hidden="true">03</span>
+            <h3>Warranty from the house</h3>
+            <p>Osaki, Titan, and AmaMedic are stood behind from Carrollton.</p>
+          </article>
+          <article>
+            <span class="why-icon" aria-hidden="true">04</span>
+            <h3>A person answers</h3>
+            <p>Call <a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a> — the same house that showed the chair.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="split-cta" aria-label="Next steps">
+      <a class="split-cta-card" href="/dealers" style="background-image:url(/assets/images/home-grid-2.jpg)">
+        <p class="eyebrow">For the home</p>
+        <h2>Find a dealer</h2>
+        <span class="pill pill--light">Dealer Locator</span>
+      </a>
+      <a class="split-cta-card" href="/franchise" style="background-image:url(/assets/images/home-grid-6.jpg)">
+        <p class="eyebrow">For the owner</p>
+        <h2>Put our name on your door</h2>
+        <span class="pill pill--light">Become a partner</span>
+      </a>
     </section>
   </main>
 </BaseLayout>

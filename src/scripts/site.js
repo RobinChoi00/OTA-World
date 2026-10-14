@@ -84,19 +84,85 @@ function initSite() {
     window.addEventListener("scroll", onScroll, { passive: true });
   }
 
-  const page = document.body.getAttribute("data-page") || "";
-  const isContact = page === "contact" || path === "/contact";
-  const existingBar = document.querySelector(".sit-bar");
-  if (isContact) {
-    existingBar?.remove();
-    document.body.classList.remove("has-sit");
-  } else if (!existingBar) {
-    const bar = document.createElement("a");
-    bar.className = "sit-bar";
-    bar.href = "tel:+18888482630";
-    bar.innerHTML = "<span>Sit with us</span><strong>888-848-2630</strong>";
-    document.body.appendChild(bar);
-    document.body.classList.add("has-sit");
+  document.querySelectorAll("[data-rail]").forEach((rail) => {
+    if (rail.dataset.bound) return;
+    rail.dataset.bound = "1";
+    const track = rail.querySelector(".rail-track");
+    const prev = rail.querySelector('[data-dir="-1"]');
+    const next = rail.querySelector('[data-dir="1"]');
+    const sync = () => {
+      prev.disabled = track.scrollLeft < 4;
+      next.disabled = track.scrollLeft + track.clientWidth > track.scrollWidth - 4;
+    };
+    rail.querySelectorAll(".rail-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        track.scrollBy({ left: Number(btn.dataset.dir) * track.clientWidth * 0.8, behavior: "smooth" });
+      });
+    });
+    track.addEventListener("scroll", sync, { passive: true });
+    sync();
+  });
+
+  const shop = document.querySelector("[data-shop]");
+  if (shop && !shop.dataset.bound) {
+    shop.dataset.bound = "1";
+    const grid = shop.querySelector("[data-grid]");
+    const cards = [...grid.children];
+    const params = new URLSearchParams(location.search);
+    const state = { brand: params.get("brand") || "all", budget: params.get("budget") || "all", sort: "featured" };
+    const budgetOf = (id) => shop.querySelector(`button[data-budget="${id}"]`);
+
+    const apply = () => {
+      const b = state.budget === "all" ? null : budgetOf(state.budget);
+      const min = b ? Number(b.dataset.min) : 0;
+      const max = b && b.dataset.max ? Number(b.dataset.max) : Infinity;
+      let shown = 0;
+      cards.forEach((card) => {
+        const price = Number(card.dataset.price);
+        const ok = (state.brand === "all" || card.dataset.brand === state.brand) && price >= min && price < max;
+        card.hidden = !ok;
+        if (ok) shown++;
+      });
+      const sorted = [...cards];
+      if (state.sort !== "featured") {
+        const dir = state.sort === "low" ? 1 : -1;
+        sorted.sort((a, c) => dir * (Number(a.dataset.price) - Number(c.dataset.price)));
+      }
+      sorted.forEach((card) => grid.appendChild(card));
+      shop.querySelectorAll("button[data-brand]").forEach((chip) => chip.classList.toggle("is-on", chip.dataset.brand === state.brand));
+      shop.querySelectorAll("button[data-budget]").forEach((chip) => chip.classList.toggle("is-on", chip.dataset.budget === state.budget));
+      shop.querySelector("[data-count]").textContent = String(shown);
+      shop.querySelector("[data-empty]").hidden = shown > 0;
+      const q = new URLSearchParams();
+      if (state.brand !== "all") q.set("brand", state.brand);
+      if (state.budget !== "all") q.set("budget", state.budget);
+      history.replaceState(history.state, "", `${location.pathname}${q.size ? `?${q}` : ""}`);
+    };
+
+    if (!shop.querySelector(`button[data-brand="${state.brand}"]`)) state.brand = "all";
+    if (state.budget !== "all" && !budgetOf(state.budget)) state.budget = "all";
+    shop.querySelectorAll("button[data-brand]").forEach((chip) => {
+      chip.addEventListener("click", () => {
+        state.brand = chip.dataset.brand;
+        apply();
+      });
+    });
+    shop.querySelectorAll("button[data-budget]").forEach((chip) => {
+      chip.addEventListener("click", () => {
+        state.budget = chip.dataset.budget;
+        apply();
+      });
+    });
+    shop.querySelector("[data-sort]").addEventListener("change", (e) => {
+      state.sort = e.target.value;
+      apply();
+    });
+    shop.querySelector("[data-reset]").addEventListener("click", () => {
+      state.brand = "all";
+      state.budget = "all";
+      apply();
+    });
+    apply();
   }
 
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
